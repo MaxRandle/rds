@@ -4,6 +4,7 @@ import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 import { api } from "@/utils/api";
+import { Avatar, AvatarGroup } from "@/components/Avatar";
 
 const Home: NextPage = () => {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
@@ -50,6 +51,13 @@ const Home: NextPage = () => {
             </p>
             <AuthShowcase />
           </div>
+          <div>
+            <AvatarGroup>
+              <Avatar />
+              <Avatar />
+              <Avatar />
+            </AvatarGroup>
+          </div>
         </div>
       </main>
     </>
@@ -63,7 +71,7 @@ const AuthShowcase: React.FC = () => {
 
   const { data: secretMessage } = api.example.getSecretMessage.useQuery(
     undefined, // no input
-    { enabled: sessionData?.user !== undefined },
+    { enabled: sessionData?.user !== undefined }
   );
 
   return (
