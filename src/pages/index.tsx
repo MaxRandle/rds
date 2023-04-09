@@ -1,10 +1,15 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 
-import { Avatar, AvatarGroup } from "@/components/Avatar";
-import { Section } from "@/components/Section";
-import { Container } from "@/components/Container";
-import { Palette } from "@/components/Palette";
+import { Avatar, AvatarGroup } from "@/components/ui/Avatar";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { Palette } from "@/components/ui/Palette";
+import {
+  XLogoIcon,
+  XLogoIconLower,
+  XLogoIconUpper,
+} from "@/components/Icons/XLogoIcon";
 
 const Home: NextPage = () => {
   return (
@@ -29,6 +34,15 @@ const Home: NextPage = () => {
               <Avatar src={"https://placekitten.com/240/240"}>{`CF`}</Avatar>
               <Avatar>{`+5`}</Avatar>
             </AvatarGroup>
+          </Container>
+        </Section>
+
+        <Section>
+          <Container>
+            <XLogoIcon size={96}>
+              <XLogoIconUpper className="fill-primary-300 dark:fill-base-500" />
+              <XLogoIconLower className="fill-primary-700 dark:fill-white" />
+            </XLogoIcon>
           </Container>
         </Section>
       </main>
