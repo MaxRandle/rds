@@ -14,6 +14,20 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
       "bg-base-700",
       "bg-base-800",
       "bg-base-900",
+      "bg-base-950",
+    ],
+    [
+      "bg-accent-50",
+      "bg-accent-100",
+      "bg-accent-200",
+      "bg-accent-300",
+      "bg-accent-400",
+      "bg-accent-500",
+      "bg-accent-600",
+      "bg-accent-700",
+      "bg-accent-800",
+      "bg-accent-900",
+      "bg-accent-950",
     ],
     [
       "bg-primary-50",
@@ -26,6 +40,7 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
       "bg-primary-700",
       "bg-primary-800",
       "bg-primary-900",
+      "bg-primary-950",
     ],
     [
       "bg-success-50",
@@ -38,6 +53,7 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
       "bg-success-700",
       "bg-success-800",
       "bg-success-900",
+      "bg-success-950",
     ],
     [
       "bg-info-50",
@@ -50,6 +66,7 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
       "bg-info-700",
       "bg-info-800",
       "bg-info-900",
+      "bg-info-950",
     ],
     [
       "bg-warning-50",
@@ -62,6 +79,7 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
       "bg-warning-700",
       "bg-warning-800",
       "bg-warning-900",
+      "bg-warning-950",
     ],
     [
       "bg-danger-50",
@@ -74,6 +92,7 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
       "bg-danger-700",
       "bg-danger-800",
       "bg-danger-900",
+      "bg-danger-950",
     ],
   ];
 

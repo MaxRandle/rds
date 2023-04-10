@@ -1,25 +1,25 @@
 import { motion } from "framer-motion";
+import { twMerge } from "tailwind-merge";
 
 type AnimatedBrandLogoProps = React.ComponentPropsWithoutRef<
   typeof motion.svg
 > & {
-  height?: number;
+  className?: string;
 };
 
 export const AnimatedBrandLogo: React.FC<AnimatedBrandLogoProps> = ({
-  height = 256,
+  className,
   ...props
 }) => {
   return (
     <motion.svg
-      width={height * 2}
-      height={height}
+      className={twMerge("aspect-[2/1] max-h-80", className)}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 64 64"
       {...props}
     >
       <motion.path
-        className="fill-primary-300 stroke-primary-300 dark:fill-base-500 dark:stroke-base-500"
+        className="fill-primary-300 stroke-primary-300 dark:fill-primary-400 dark:stroke-primary-400"
         variants={{
           hidden: {
             pathLength: 0,

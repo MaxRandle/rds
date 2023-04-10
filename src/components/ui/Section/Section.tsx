@@ -7,7 +7,10 @@ const sectionClasses = cva("my-20 sm:my-32", {
      * @summary specifies the background color
      */
     palette: {
-      primary: ["my-0 sm:my-0 py-20 sm:py-32", "bg-primary-900"],
+      primary: [
+        "my-0 sm:my-0 py-20 sm:py-32",
+        "dark:bg-primary-800 bg-primary-700",
+      ],
     },
   },
 });

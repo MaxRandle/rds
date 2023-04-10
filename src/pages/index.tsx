@@ -1,16 +1,12 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 
-import { Avatar, AvatarGroup } from "@/components/ui/Avatar";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { Palette } from "@/components/ui/Palette";
-import {
-  BrandLogoIcon,
-  BrandLogoIconLower,
-  BrandLogoIconUpper,
-} from "@/components/brand/BrandLogoIcon";
 import { AnimatedBrandLogo } from "@/components/brand/AnimatedBrandLogo";
+import { ButtonLink } from "@/components/ui/Button";
+import { motion } from "framer-motion";
+import { ROUTES } from "@/config/routes";
 
 const Home: NextPage = () => {
   return (
@@ -23,34 +19,31 @@ const Home: NextPage = () => {
 
       <main className="min-h-screen overflow-hidden bg-base-100 pb-20 dark:bg-base-900">
         <Section>
-          <Container>
-            <AnimatedBrandLogo className="mx-auto" />
-          </Container>
-        </Section>
-
-        <Section>
-          <Container>
-            <Palette />
-          </Container>
-        </Section>
-
-        <Section palette="primary">
-          <Container>
-            <AvatarGroup>
-              <Avatar src="https://placekitten.com/200/200">{`CF`}</Avatar>
-              <Avatar>{`CF`}</Avatar>
-              <Avatar src={"https://placekitten.com/240/240"}>{`CF`}</Avatar>
-              <Avatar>{`+5`}</Avatar>
-            </AvatarGroup>
-          </Container>
-        </Section>
-
-        <Section>
-          <Container>
-            <BrandLogoIcon size={96}>
-              <BrandLogoIconUpper className="fill-primary-300 dark:fill-base-500" />
-              <BrandLogoIconLower className="fill-primary-700 dark:fill-white" />
-            </BrandLogoIcon>
+          <Container className="flex flex-col items-center">
+            <AnimatedBrandLogo />
+            <motion.div
+              className="mt-20"
+              variants={{
+                hidden: {
+                  opacity: 0,
+                  y: 8,
+                },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                },
+              }}
+              initial="hidden"
+              animate="visible"
+              transition={{
+                delay: 2.25,
+                duration: 1,
+              }}
+            >
+              <ButtonLink palette="primary" href={ROUTES.about.root}>
+                Enter
+              </ButtonLink>
+            </motion.div>
           </Container>
         </Section>
       </main>
