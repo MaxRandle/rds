@@ -96,14 +96,14 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
     ],
   ];
 
-  const classes = "flex gap-2 justify-center";
+  const classes = "flex gap-2 justify-center max-w-md mx-auto";
 
   return (
     <div className={twMerge(classes, className)} {...props}>
       {colors.map((shades, idx) => (
-        <div key={idx} className="flex flex-col gap-2">
+        <div key={idx} className="flex grow flex-col gap-2">
           {shades.map((shade) => (
-            <div key={shade} className={`h-16 w-16 rounded-md ${shade}`} />
+            <div key={shade} className={`aspect-square rounded-md ${shade}`} />
           ))}
         </div>
       ))}

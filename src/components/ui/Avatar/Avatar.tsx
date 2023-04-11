@@ -22,7 +22,7 @@ export const Avatar: React.FC<AvatarProps> = ({
 }) => {
   const classes = [
     "relative shrink-0 overflow-hidden inline-block h-16 w-16 rounded-full group-[]/avatar:-ml-4 group-[]/avatar:first:ml-0",
-    "bg-primary-100 dark:bg-primary-800 ring-4 ring-base-50 dark:ring-base-900",
+    "bg-primary-200 dark:bg-base-800 ring-4 ring-base-100 dark:ring-base-900",
   ];
 
   return (

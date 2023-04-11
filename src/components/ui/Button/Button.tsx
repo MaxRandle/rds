@@ -3,27 +3,59 @@ import { twMerge } from "tailwind-merge";
 import NextLink from "next/link";
 
 const buttonClasses = cva(
-  "tracking-wider rounded-md transition inline-flex items-center",
+  [
+    "font-semibold tracking-wider border rounded-full shadow-sm",
+
+    "group-[]/button:px-4",
+    "group-[]/button:rounded-none",
+    "group-[]/button:shadow-none",
+    "group-[]/button:first:rounded-l-full",
+    "group-[]/button:last:rounded-r-full",
+    "group-[]/button:first:pl-5",
+    "group-[]/button:last:pr-5",
+    "group-[]/button:hover:relative",
+    "group-[]/button:focus-visible:relative",
+  ],
   {
     variants: {
       /**
        * @summary specifies the background and text colors
        */
-      palette: {
-        base: ["bg-base-100 text-base-700 hover:bg-base-300"],
-        primary: ["bg-primary-600 text-white hover:bg-primary-700"],
-        unstyled: ["text-black dark:text-white"],
+      intent: {
+        primary: [
+          "text-base-50",
+          "bg-primary-600 hover:bg-primary-700 dark:bg-primary-700 dark:hover:bg-primary-600",
+          "border-primary-600 hover:border-primary-700 dark:border-primary-700 dark:hover:border-primary-600",
+        ],
+        secondary: [
+          "text-base-900 dark:text-base-50",
+          "bg-base-50 hover:bg-base-100 dark:bg-base-900 dark:hover:bg-base-800",
+          "border-base-300 hover:border-base-400 dark:border-base-600 hover:dark:border-base-500",
+        ],
+        destructive: [
+          "text-base-50",
+          "bg-danger-600 hover:bg-danger-700 dark:bg-danger-700 dark:hover:bg-danger-600",
+          "border-danger-700 hover:border-danger-800",
+        ],
       },
       /**
        * @summary specifies size of the button
        */
       size: {
-        md: "h-10 px-6 text-lg",
-        lg: "h-16 px-6 text-lg",
+        md: "px-5 py-2 text-md",
+        lg: "px-8 py-3 text-lg",
+      },
+      disabled: {
+        true: [
+          "opacity-60",
+          "text-base-900 dark:text-base-50",
+          "bg-base-300 dark:bg-base-600 hover:bg-base-300 dark:hover:bg-base-600",
+          "border-base-300 dark:border-base-600 hover:border-base-300 dark:hover:border-base-600",
+        ],
       },
     },
     defaultVariants: {
-      palette: "base",
+      intent: "primary",
       size: "md",
     },
   }
@@ -34,13 +66,20 @@ export type ButtonProps = React.ComponentPropsWithoutRef<"button"> &
 
 export const Button: React.FC<ButtonProps> = ({
   className,
-  palette,
+  intent,
   size,
+  disabled,
   ...props
 }) => {
-  const classes = buttonClasses({ palette, size });
+  const classes = buttonClasses({ intent, size, disabled });
 
-  return <button className={twMerge(classes, className)} {...props} />;
+  return (
+    <button
+      className={twMerge(classes, className)}
+      disabled={disabled}
+      {...props}
+    />
+  );
 };
 
 export type ButtonLinkProps = React.ComponentPropsWithoutRef<typeof NextLink> &
@@ -48,11 +87,18 @@ export type ButtonLinkProps = React.ComponentPropsWithoutRef<typeof NextLink> &
 
 export const ButtonLink: React.FC<ButtonLinkProps> = ({
   className,
-  palette,
+  intent,
   size,
+  disabled,
   ...props
 }) => {
-  const classes = buttonClasses({ palette, size });
+  const classes = buttonClasses({ intent, size, disabled });
 
-  return <NextLink className={twMerge(classes, className)} {...props} />;
+  return (
+    <NextLink
+      className={twMerge(classes, className)}
+      disabled={disabled}
+      {...props}
+    />
+  );
 };

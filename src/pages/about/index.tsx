@@ -1,9 +1,9 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 
-import { Section } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
-import { Typography } from "@/components/ui/Typography";
+import { Section } from "@ui/Section";
+import { Container } from "@ui/Container";
+import { Typography } from "@ui/Typography";
 import { AppNavHeader } from "@/components/composite/AppNavHeader";
 
 const Page: NextPage = () => {

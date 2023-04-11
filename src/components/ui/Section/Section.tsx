@@ -9,8 +9,9 @@ const sectionClasses = cva("my-20 sm:my-32", {
     palette: {
       primary: [
         "my-0 sm:my-0 py-20 sm:py-32",
-        "dark:bg-primary-800 bg-primary-700",
+        "dark:bg-primary-950 bg-primary-800",
       ],
+      accent: ["my-0 sm:my-0 py-20 sm:py-32", "bg-accent-800"],
     },
   },
 });

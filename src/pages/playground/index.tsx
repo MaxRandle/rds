@@ -1,11 +1,12 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 
-import { Avatar, AvatarGroup } from "@/components/ui/Avatar";
-import { Section } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
-import { Palette } from "@/components/ui/Palette";
+import { Avatar, AvatarGroup } from "@ui/Avatar";
+import { Section } from "@ui/Section";
+import { Container } from "@ui/Container";
+import { Palette } from "@ui/Palette";
 import { AppNavHeader } from "@/components/composite/AppNavHeader";
+import { Button, ButtonGroup } from "@ui/Button";
 
 const Page: NextPage = () => {
   return (
@@ -24,14 +25,42 @@ const Page: NextPage = () => {
           </Container>
         </Section>
 
-        <Section palette="primary">
-          <Container>
+        <Section palette="accent">
+          <Container className="space-y-20">
             <AvatarGroup>
               <Avatar src="https://placekitten.com/200/200">{`CF`}</Avatar>
               <Avatar>{`CF`}</Avatar>
               <Avatar src={"https://placekitten.com/240/240"}>{`CF`}</Avatar>
               <Avatar>{`+5`}</Avatar>
             </AvatarGroup>
+          </Container>
+        </Section>
+
+        <Section>
+          <Container>
+            <ul className="space-y-4">
+              <li>
+                <Button intent="secondary">click</Button>
+              </li>
+              <li>
+                <Button size="lg" intent="primary">
+                  clock
+                </Button>
+              </li>
+              <li>
+                <Button intent="destructive">clack</Button>
+              </li>
+              <li>
+                <Button disabled>clack</Button>
+              </li>
+              <li>
+                <ButtonGroup>
+                  <Button intent="secondary">click</Button>
+                  <Button intent="secondary">clock</Button>
+                  <Button intent="secondary">clack</Button>
+                </ButtonGroup>
+              </li>
+            </ul>
           </Container>
         </Section>
       </main>

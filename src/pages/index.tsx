@@ -1,10 +1,10 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 
-import { Section } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
+import { Section } from "@ui/Section";
+import { Container } from "@ui/Container";
 import { AnimatedBrandLogo } from "@/components/brand/AnimatedBrandLogo";
-import { ButtonLink } from "@/components/ui/Button";
+import { ButtonLink } from "@ui/Button";
 import { motion } from "framer-motion";
 import { ROUTES } from "@/config/routes";
 
@@ -40,7 +40,7 @@ const Home: NextPage = () => {
                 duration: 1,
               }}
             >
-              <ButtonLink palette="primary" href={ROUTES.about.root}>
+              <ButtonLink size="lg" intent="primary" href={ROUTES.about.root}>
                 Enter
               </ButtonLink>
             </motion.div>
