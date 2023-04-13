@@ -9,7 +9,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   return (
     <div
       className={twMerge(
-        "group/button inline-flex -space-x-px rounded-full shadow-sm",
+        "group/button-group inline-flex -space-x-px rounded-full shadow-sm",
         className
       )}
       {...props}

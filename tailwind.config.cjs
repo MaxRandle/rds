@@ -13,6 +13,12 @@ const config = {
       //   warning: colors.amber,
       //   danger: colors.red,
       // },
+      boxShadow: {
+        "glow-md": "0rem 0rem 1rem -0.125rem rgba(255, 255, 255, 0.08);",
+        "glow-lg": "0rem 0rem 4rem -0.5rem rgba(255, 255, 255, 0.08);",
+        // --box-shadow--high-glow: 0rem 0rem 4rem -0.5rem rgba(255, 255, 255, 0.08);
+        // --box-shadow--low-glow: 0rem 0rem 1rem -0.125rem rgba(255, 255, 255, 0.08);
+      },
       colors: {
         base: colors.neutral,
         // base: {

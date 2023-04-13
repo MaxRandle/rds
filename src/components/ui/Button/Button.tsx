@@ -6,15 +6,15 @@ const buttonClasses = cva(
   [
     "font-semibold tracking-wider border rounded-full shadow-sm",
 
-    "group-[]/button:px-4",
-    "group-[]/button:rounded-none",
-    "group-[]/button:shadow-none",
-    "group-[]/button:first:rounded-l-full",
-    "group-[]/button:last:rounded-r-full",
-    "group-[]/button:first:pl-5",
-    "group-[]/button:last:pr-5",
-    "group-[]/button:hover:relative",
-    "group-[]/button:focus-visible:relative",
+    "group-[]/button-group:px-4",
+    "group-[]/button-group:rounded-none",
+    "group-[]/button-group:shadow-none",
+    "group-[]/button-group:first:rounded-l-full",
+    "group-[]/button-group:last:rounded-r-full",
+    "group-[]/button-group:first:pl-5",
+    "group-[]/button-group:last:pr-5",
+    "group-[]/button-group:hover:relative",
+    "group-[]/button-group:focus-visible:relative",
   ],
   {
     variants: {
@@ -47,7 +47,7 @@ const buttonClasses = cva(
       },
       disabled: {
         true: [
-          "opacity-60",
+          "opacity-60 pointer-events-none",
           "text-base-900 dark:text-base-50",
           "bg-base-300 dark:bg-base-600 hover:bg-base-300 dark:hover:bg-base-600",
           "border-base-300 dark:border-base-600 hover:border-base-300 dark:hover:border-base-600",
@@ -94,11 +94,5 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
 }) => {
   const classes = buttonClasses({ intent, size, disabled });
 
-  return (
-    <NextLink
-      className={twMerge(classes, className)}
-      disabled={disabled}
-      {...props}
-    />
-  );
+  return <NextLink className={twMerge(classes, className)} {...props} />;
 };

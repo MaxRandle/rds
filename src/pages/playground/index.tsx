@@ -1,12 +1,14 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 
-import { Avatar, AvatarGroup } from "@ui/Avatar";
+import { Avatar, AvatarContainer, AvatarGroup } from "@ui/Avatar";
 import { Section } from "@ui/Section";
 import { Container } from "@ui/Container";
 import { Palette } from "@ui/Palette";
 import { AppNavHeader } from "@/components/composite/AppNavHeader";
 import { Button, ButtonGroup } from "@ui/Button";
+import { Card, CardContent } from "@ui/Card";
+import { Typography } from "@ui/Typography";
 
 const Page: NextPage = () => {
   return (
@@ -61,6 +63,24 @@ const Page: NextPage = () => {
                 </ButtonGroup>
               </li>
             </ul>
+          </Container>
+        </Section>
+
+        <Section>
+          <Container>
+            <Card palette="surface" elevation="high">
+              <CardContent>
+                <AvatarContainer>
+                  <Avatar src="https://placekitten.com/220/220">{`CF`}</Avatar>
+                  <div>
+                    <Typography level="subheading">Cat Catterson</Typography>
+                    <Typography level="body" color="weaker">
+                      Head of CATering
+                    </Typography>
+                  </div>
+                </AvatarContainer>
+              </CardContent>
+            </Card>
           </Container>
         </Section>
       </main>

@@ -1,6 +1,24 @@
 import React from "react";
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import { twMerge } from "tailwind-merge";
+import { type VariantProps, cva } from "class-variance-authority";
+
+const AvatarVariants = cva(
+  [
+    "relative shrink-0 overflow-hidden inline-block rounded-full",
+    "group-[]/avatar-group:-ml-4 group-[]/avatar-group:first:ml-0",
+    "group-[]/avatar-container:mr-3",
+    "bg-primary-200 dark:bg-base-800 ring-4 ring-base-100 dark:ring-base-900",
+  ],
+  {
+    variants: {
+      size: { md: "h-12 2-12", lg: "h-16 2-16", xl: "h-24 2-24" },
+    },
+    defaultVariants: {
+      size: "md",
+    },
+  }
+);
 
 type AvatarRootProps = React.ComponentPropsWithoutRef<
   typeof AvatarPrimitive.Root
@@ -11,19 +29,18 @@ type AvatarImageProps = React.ComponentPropsWithoutRef<
 >;
 
 export type AvatarProps = AvatarRootProps &
-  Pick<AvatarImageProps, "src" | "alt">;
+  Pick<AvatarImageProps, "src" | "alt"> &
+  VariantProps<typeof AvatarVariants>;
 
 export const Avatar: React.FC<AvatarProps> = ({
   src,
   alt,
   children,
   className,
+  size,
   ...props
 }) => {
-  const classes = [
-    "relative shrink-0 overflow-hidden inline-block h-16 w-16 rounded-full group-[]/avatar:-ml-4 group-[]/avatar:first:ml-0",
-    "bg-primary-200 dark:bg-base-800 ring-4 ring-base-100 dark:ring-base-900",
-  ];
+  const classes = AvatarVariants({ size });
 
   return (
     <AvatarPrimitive.Root className={twMerge(classes, className)} {...props}>

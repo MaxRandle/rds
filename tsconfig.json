@@ -18,8 +18,8 @@
     "noUncheckedIndexedAccess": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@ui/*": ["./src/components/ui/*"]
+      "@ui/*": ["./src/components/ui/*"],
+      "@/*": ["./src/*"]
     }
   },
   "include": [
