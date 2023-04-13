@@ -9,6 +9,7 @@ import { AppNavHeader } from "@/components/composite/AppNavHeader";
 import { Button, ButtonGroup } from "@ui/Button";
 import { Card, CardContent } from "@ui/Card";
 import { Typography } from "@ui/Typography";
+import { Alert } from "@ui/Alert";
 
 const Page: NextPage = () => {
   return (
@@ -28,12 +29,42 @@ const Page: NextPage = () => {
         </Section>
 
         <Section palette="accent">
-          <Container className="space-y-20">
+          <Container className="space-y-8">
             <AvatarGroup>
-              <Avatar src="https://placekitten.com/200/200">{`CF`}</Avatar>
-              <Avatar>{`CF`}</Avatar>
-              <Avatar src={"https://placekitten.com/240/240"}>{`CF`}</Avatar>
-              <Avatar>{`+5`}</Avatar>
+              <Avatar
+                size="sm"
+                src="https://placekitten.com/200/200"
+              >{`CF`}</Avatar>
+              <Avatar size="sm">{`CF`}</Avatar>
+              <Avatar
+                size="sm"
+                src={"https://placekitten.com/240/240"}
+              >{`CF`}</Avatar>
+              <Avatar size="sm">{`+5`}</Avatar>
+            </AvatarGroup>
+            <AvatarGroup>
+              <Avatar
+                size="md"
+                src="https://placekitten.com/200/200"
+              >{`CF`}</Avatar>
+              <Avatar size="md">{`CF`}</Avatar>
+              <Avatar
+                size="md"
+                src={"https://placekitten.com/240/240"}
+              >{`CF`}</Avatar>
+              <Avatar size="md">{`+5`}</Avatar>
+            </AvatarGroup>
+            <AvatarGroup>
+              <Avatar
+                size="lg"
+                src="https://placekitten.com/200/200"
+              >{`CF`}</Avatar>
+              <Avatar size="lg">{`CF`}</Avatar>
+              <Avatar
+                size="lg"
+                src={"https://placekitten.com/240/240"}
+              >{`CF`}</Avatar>
+              <Avatar size="lg">{`+5`}</Avatar>
             </AvatarGroup>
           </Container>
         </Section>
@@ -73,7 +104,7 @@ const Page: NextPage = () => {
                 <AvatarContainer>
                   <Avatar src="https://placekitten.com/220/220">{`CF`}</Avatar>
                   <div>
-                    <Typography level="subheading">Cat Catterson</Typography>
+                    <Typography level="heading3">Cat Catterson</Typography>
                     <Typography level="body" color="weaker">
                       Head of CATering
                     </Typography>
@@ -81,6 +112,23 @@ const Page: NextPage = () => {
                 </AvatarContainer>
               </CardContent>
             </Card>
+          </Container>
+        </Section>
+
+        <Section>
+          <Container className="space-y-4">
+            <Alert title="Success alert" status="success">
+              Alert body. Some text or maybe some JSX goes here.
+            </Alert>
+            <Alert title="Info alert" status="info">
+              Alert body. Some text or maybe some JSX goes here.
+            </Alert>
+            <Alert title="Warning alert" status="warning">
+              Alert body. Some text or maybe some JSX goes here.
+            </Alert>
+            <Alert title="Danger alert" status="danger">
+              Alert body. Some text or maybe some JSX goes here.
+            </Alert>
           </Container>
         </Section>
       </main>

@@ -24,6 +24,7 @@
     "next-auth": "^4.22.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
     "sass": "^1.61.0",
     "superjson": "1.12.2",
     "tailwind-merge": "^1.12.0",

@@ -5,14 +5,33 @@ import { type VariantProps, cva } from "class-variance-authority";
 
 const AvatarVariants = cva(
   [
+    "text-primary-600 dark:text-primary-300",
+    "bg-primary-200 dark:bg-base-800 ring-base-100 dark:ring-base-900",
     "relative shrink-0 overflow-hidden inline-block rounded-full",
-    "group-[]/avatar-group:-ml-4 group-[]/avatar-group:first:ml-0",
-    "group-[]/avatar-container:mr-3",
-    "bg-primary-200 dark:bg-base-800 ring-4 ring-base-100 dark:ring-base-900",
+    "group-[]/avatar-group:first:ml-0",
   ],
   {
     variants: {
-      size: { md: "w-12 h-12", lg: "w-16 h-16", xl: "w-24 h-24" },
+      size: {
+        sm: [
+          "text-lg w-12 h-12",
+          "group-[]/avatar-group:-ml-2",
+          "group-[]/avatar-group:ring-4",
+          "group-[]/avatar-container:mr-3",
+        ],
+        md: [
+          "text-xl w-16 h-16",
+          "group-[]/avatar-group:-ml-4",
+          "group-[]/avatar-group:ring-4",
+          "group-[]/avatar-container:mr-4",
+        ],
+        lg: [
+          "text-2xl w-20 h-20",
+          "group-[]/avatar-group:-ml-5",
+          "group-[]/avatar-group:ring-4",
+          "group-[]/avatar-container:mr-4",
+        ],
+      },
     },
     defaultVariants: {
       size: "md",
@@ -49,7 +68,7 @@ export const Avatar: React.FC<AvatarProps> = ({
         src={src}
         alt={alt}
       />
-      <AvatarPrimitive.Fallback className="flex h-full w-full items-center justify-center rounded-full text-xl text-primary-600 dark:text-primary-300">
+      <AvatarPrimitive.Fallback className="flex h-full w-full items-center justify-center rounded-full">
         {children}
       </AvatarPrimitive.Fallback>
     </AvatarPrimitive.Root>
