@@ -13,9 +13,26 @@ export const AnimatedBrandLogo: React.FC<AnimatedBrandLogoProps> = ({
 }) => {
   return (
     <motion.svg
-      className={twMerge("aspect-[2/1] max-h-80", className)}
+      className={twMerge("drop aspect-[2/1] max-h-80", className)}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 64 64"
+      variants={{
+        dropStart: {
+          filter:
+            "drop-shadow(0px 0px 96px rgba(255, 255, 255, 0.7)) drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1))",
+          y: 8,
+        },
+        dropEnd: {
+          filter:
+            "drop-shadow(0px 0px 48px rgba(255, 255, 255, 0.4)) drop-shadow(0 25px 25px rgb(0 0 0 / 0.25)) drop-shadow(0 25px 25px rgb(0 0 0 / 0.25))",
+          y: 0,
+        },
+      }}
+      initial="dropStart"
+      animate="dropEnd"
+      transition={{
+        default: { delay: 2, duration: 2, ease: "easeOut" },
+      }}
       {...props}
     >
       <motion.path

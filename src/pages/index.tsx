@@ -36,11 +36,17 @@ const Home: NextPage = () => {
               initial="hidden"
               animate="visible"
               transition={{
-                delay: 2.25,
+                delay: 3,
                 duration: 1,
+                ease: "easeOut",
               }}
             >
-              <ButtonLink size="lg" intent="primary" href={ROUTES.about.root}>
+              <ButtonLink
+                className="shadow-lg drop-shadow-glow-md"
+                size="lg"
+                intent="primary"
+                href={ROUTES.about.root}
+              >
                 Enter
               </ButtonLink>
             </motion.div>

@@ -16,8 +16,11 @@ const config = {
       boxShadow: {
         "glow-md": "0rem 0rem 1rem -0.125rem rgba(255, 255, 255, 0.08);",
         "glow-lg": "0rem 0rem 4rem -0.5rem rgba(255, 255, 255, 0.08);",
-        // --box-shadow--high-glow: 0rem 0rem 4rem -0.5rem rgba(255, 255, 255, 0.08);
-        // --box-shadow--low-glow: 0rem 0rem 1rem -0.125rem rgba(255, 255, 255, 0.08);
+      },
+      dropShadow: {
+        "glow-md": "0rem 0rem 2rem rgba(255, 255, 255, 0.2)",
+        "glow-lg": "0rem 0rem 4rem rgba(255, 255, 255, 0.2)",
+        "glow-xl": "0rem 0rem 8rem rgba(255, 255, 255, 0.2)",
       },
       colors: {
         base: colors.neutral,
