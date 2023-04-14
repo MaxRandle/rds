@@ -10,6 +10,8 @@ import { Button, ButtonGroup } from "@ui/Button";
 import { Card, CardContent } from "@ui/Card";
 import { Typography } from "@ui/Typography";
 import { Alert } from "@ui/Alert";
+import { FiArrowLeft, FiArrowRight, FiPlus } from "react-icons/fi";
+import { Input, InputAdornment, InputGroup } from "@ui/Input";
 
 const Page: NextPage = () => {
   return (
@@ -88,9 +90,15 @@ const Page: NextPage = () => {
               </li>
               <li>
                 <ButtonGroup>
-                  <Button intent="secondary">click</Button>
-                  <Button intent="secondary">clock</Button>
-                  <Button intent="secondary">clack</Button>
+                  <Button intent="secondary">
+                    <FiArrowLeft size={24} />
+                  </Button>
+                  <Button intent="secondary">
+                    <FiPlus size={24} />
+                  </Button>
+                  <Button intent="secondary">
+                    <FiArrowRight size={24} />
+                  </Button>
                 </ButtonGroup>
               </li>
             </ul>
@@ -99,7 +107,10 @@ const Page: NextPage = () => {
 
         <Section>
           <Container>
-            <Card palette="surface" elevation="high">
+            <Card background="base" elevation="low">
+              <CardContent />
+            </Card>
+            <Card className="mt-6" background="accent-raised" elevation="high">
               <CardContent>
                 <AvatarContainer>
                   <Avatar src="https://placekitten.com/220/220">{`CF`}</Avatar>
@@ -129,6 +140,31 @@ const Page: NextPage = () => {
             <Alert title="Danger alert" status="danger">
               Alert body. Some text or maybe some JSX goes here.
             </Alert>
+          </Container>
+        </Section>
+
+        <Section>
+          <Container className="grid grid-cols-1 flex-col gap-4 sm:grid-cols-2">
+            <Input placeholder="example@email.com" />
+            <Input value="a" pattern="[0-9]*" />
+            <Input disabled value="N/A" />
+            <InputGroup>
+              <InputAdornment>https://</InputAdornment>
+              <Input placeholder="maxrandle.co.nz" />
+            </InputGroup>
+            <InputGroup className="sm:col-span-2">
+              <Input />
+              <InputAdornment>to</InputAdornment>
+              <Input />
+            </InputGroup>
+            <InputGroup>
+              <InputAdornment>$</InputAdornment>
+              <Input />
+            </InputGroup>
+            <InputGroup>
+              <Input />
+              <InputAdornment>kg</InputAdornment>
+            </InputGroup>
           </Container>
         </Section>
       </main>

@@ -5,18 +5,20 @@ const CardVariants = cva(
   ["bg-base-50 dark:bg-base-800 rounded-lg overflow-hidden"],
   {
     variants: {
-      palette: {
+      background: {
         base: "bg-base-50 dark:bg-base-900",
-        surface: "bg-base-200 dark:bg-base-800",
+        raised: "bg-base-200 dark:bg-base-800",
+        accent: "bg-accent-50 dark:bg-accent-900",
+        "accent-raised": "bg-accent-200 dark:bg-accent-800",
       },
       elevation: {
         flat: "",
-        low: "shadow-md dark:shadow-glow-md",
+        low: "shadow-sm dark:shadow-glow-md",
         high: "shadow-lg dark:shadow-glow-lg",
       },
     },
     defaultVariants: {
-      palette: "surface",
+      background: "raised",
       elevation: "low",
     },
   }
@@ -27,11 +29,11 @@ export type CardProps = React.ComponentPropsWithoutRef<"div"> &
 
 export const Card: React.FC<CardProps> = ({
   className,
-  palette,
+  background,
   elevation,
   ...props
 }) => {
-  const classes = CardVariants({ palette, elevation });
+  const classes = CardVariants({ background, elevation });
 
   return <div className={twMerge(classes, className)} {...props} />;
 };
