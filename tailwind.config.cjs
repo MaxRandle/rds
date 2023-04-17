@@ -6,13 +6,6 @@ const config = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      // colors: {
-      //   primary: colors.violet,
-      //   success: colors.emerald,
-      //   info: colors.sky,
-      //   warning: colors.amber,
-      //   danger: colors.red,
-      // },
       boxShadow: {
         "glow-md": "0rem 0rem 1rem -0.125rem rgba(255, 255, 255, 0.08);",
         "glow-lg": "0rem 0rem 4rem -0.5rem rgba(255, 255, 255, 0.08);",
@@ -24,19 +17,7 @@ const config = {
       },
       colors: {
         base: colors.neutral,
-        // base: {
-        //   50: "var(--grey-50)",
-        //   100: "var(--grey-100)",
-        //   200: "var(--grey-200)",
-        //   300: "var(--grey-300)",
-        //   400: "var(--grey-400)",
-        //   500: "var(--grey-500)",
-        //   600: "var(--grey-600)",
-        //   700: "var(--grey-700)",
-        //   800: "var(--grey-800)",
-        //   900: "var(--grey-900)",
-        //   950: "var(--grey-950)",
-        // },
+
         accent: {
           50: "var(--pearl-50)",
           100: "var(--pearl-100)",
@@ -62,6 +43,19 @@ const config = {
           800: "var(--cyenta-800)",
           900: "var(--cyenta-900)",
           950: "var(--cyenta-950)",
+        },
+        secondary: {
+          50: "var(--red-50)",
+          100: "var(--red-100)",
+          200: "var(--red-200)",
+          300: "var(--red-300)",
+          400: "var(--red-400)",
+          500: "var(--red-500)",
+          600: "var(--red-600)",
+          700: "var(--red-700)",
+          800: "var(--red-800)",
+          900: "var(--red-900)",
+          950: "var(--red-950)",
         },
         success: {
           50: "var(--emerald-50)",

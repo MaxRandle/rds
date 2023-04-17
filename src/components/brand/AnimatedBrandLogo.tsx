@@ -36,7 +36,7 @@ export const AnimatedBrandLogo: React.FC<AnimatedBrandLogoProps> = ({
       {...props}
     >
       <motion.path
-        className="fill-primary-300 stroke-primary-300 dark:fill-primary-400 dark:stroke-primary-400"
+        className="fill-primary-400 stroke-primary-400 stroke-2 dark:fill-primary-400 dark:stroke-primary-400"
         variants={{
           hidden: {
             pathLength: 0,
@@ -56,10 +56,10 @@ export const AnimatedBrandLogo: React.FC<AnimatedBrandLogoProps> = ({
           opacity: { duration: 2, ease: "circIn" },
           pathLength: { ease: "linear", duration: 2 },
         }}
-        d="M9.182 64H0l20.316-33.353L1.847 0h20.035l10.439 19.689L42.439 0h11.282c-4.708 15.109-10.182 22.624-22.944 33.859C19.125 44.117 14.05 50.647 9.182 64Z"
+        d="m0 0 20 32L0 64h20l12-20h-8l16-24h-8L20 0H0Z"
       />
       <motion.path
-        className="fill-primary-700 stroke-primary-700 dark:fill-white dark:stroke-white"
+        className="fill-primary-800 stroke-primary-800 stroke-2 dark:fill-accent-200 dark:stroke-accent-200"
         variants={{
           hidden: {
             pathLength: 0,
@@ -79,7 +79,7 @@ export const AnimatedBrandLogo: React.FC<AnimatedBrandLogoProps> = ({
           opacity: { duration: 2, ease: "circIn" },
           pathLength: { ease: "linear", duration: 2 },
         }}
-        d="M53.721 0h8.553L43.965 30.996 64 64H43.563L31.96 43.438 20.316 64H9.182c4.868-13.353 9.943-19.883 21.595-30.141C43.539 22.624 49.013 15.109 53.721 0Z"
+        d="M64 64 44 32 64 0H44L32 20h8L24 44h8l12 20h20Z"
       />
     </motion.svg>
   );

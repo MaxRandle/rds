@@ -12,6 +12,11 @@ import { Typography } from "@ui/Typography";
 import { Alert } from "@ui/Alert";
 import { FiArrowLeft, FiArrowRight, FiPlus } from "react-icons/fi";
 import { Input, InputAdornment, InputGroup } from "@ui/Input";
+import {
+  SplitContent,
+  SplitContentLeft,
+  SplitContentRight,
+} from "@ui/SplitContent";
 
 const Page: NextPage = () => {
   return (
@@ -165,6 +170,48 @@ const Page: NextPage = () => {
               <Input />
               <InputAdornment>kg</InputAdornment>
             </InputGroup>
+          </Container>
+        </Section>
+
+        <Section>
+          <Container>
+            <SplitContent>
+              <SplitContentLeft>
+                <Card>
+                  <CardContent>
+                    <Typography>First</Typography>
+                  </CardContent>
+                </Card>
+              </SplitContentLeft>
+              <SplitContentRight>
+                <Card>
+                  <CardContent>
+                    <Typography>Second</Typography>
+                  </CardContent>
+                </Card>
+              </SplitContentRight>
+              <SplitContentRight>
+                <Card>
+                  <CardContent>
+                    <Typography>Third</Typography>
+                  </CardContent>
+                </Card>
+              </SplitContentRight>
+              <SplitContentLeft>
+                <Card>
+                  <CardContent>
+                    <Typography>Fourth</Typography>
+                  </CardContent>
+                </Card>
+              </SplitContentLeft>
+              <SplitContentLeft>
+                <Card>
+                  <CardContent>
+                    <Typography>Fifth</Typography>
+                  </CardContent>
+                </Card>
+              </SplitContentLeft>
+            </SplitContent>
           </Container>
         </Section>
       </main>
