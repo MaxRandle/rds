@@ -20,8 +20,8 @@ const TypographyClasses = cva("text-base", {
       heading2: "text-3xl sm:text-4xl font-light tracking-tight",
       heading3: "text-xl sm:text-2xl font-light",
       subheading: "text-lg sm:text-xl",
-      body: "text-base",
-      caption: "text-sm",
+      body: "text-base sm:text-lg",
+      caption: "text-sm sm:text-base",
     },
   },
   defaultVariants: {

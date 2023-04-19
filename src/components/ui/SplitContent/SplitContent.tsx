@@ -4,7 +4,7 @@ import React from "react";
 import { SplitContentLeft } from "./SplitContentLeft";
 import { SplitContentRight } from "./SplitContentRight";
 
-const SplitContentVariants = cva(["flex gap-4 w-full"]);
+const SplitContentVariants = cva([""]);
 
 export type SplitContentProps = React.ComponentPropsWithoutRef<"div"> &
   VariantProps<typeof SplitContentVariants>;
@@ -14,37 +14,34 @@ export const SplitContent: React.FC<SplitContentProps> = ({
   children,
   ...props
 }) => {
-  const classes = SplitContentVariants();
-
   const leftChildren: React.ReactElement[] = [];
   const rightChildren: React.ReactElement[] = [];
 
   React.Children.forEach(children, (child) => {
     if (React.isValidElement(child)) {
-      console.log(child.type);
-      console.log("after valid");
       if (child.type === SplitContentLeft) {
-        console.log("left");
         leftChildren.push(child);
         return;
       }
       if (child.type === SplitContentRight) {
-        console.log("right");
         rightChildren.push(child);
         return;
       }
     }
   });
 
-  console.log(leftChildren);
-
   return (
-    <div className={twMerge(classes, className)} {...props}>
-      <div className="flex w-full flex-col gap-4 md:hidden">{children}</div>
-      <div className="hidden w-full flex-col gap-4 md:flex md:justify-center">
+    <div
+      className={twMerge("flex w-full gap-4 sm:gap-6", className)}
+      {...props}
+    >
+      <div className="flex w-full flex-col gap-4 sm:gap-6 md:hidden">
+        {children}
+      </div>
+      <div className="hidden w-full flex-col gap-6 md:flex md:justify-center">
         {leftChildren}
       </div>
-      <div className="hidden w-full flex-col gap-4 md:flex md:justify-center">
+      <div className="hidden w-full flex-col gap-6 md:flex md:justify-center">
         {rightChildren}
       </div>
     </div>

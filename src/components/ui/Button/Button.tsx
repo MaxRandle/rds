@@ -4,7 +4,7 @@ import NextLink from "next/link";
 
 const buttonClasses = cva(
   [
-    "font-semibold tracking-wider border rounded-full shadow-sm",
+    "font-semibold tracking-wider border rounded-full shadow-sm inline-flex items-center justify-center gap-4",
 
     "group-[]/button-group:px-4",
     "group-[]/button-group:rounded-none",
@@ -42,8 +42,8 @@ const buttonClasses = cva(
        * @summary specifies size of the button
        */
       size: {
-        md: "px-5 py-2 text-md",
-        lg: "px-8 py-3 text-lg",
+        md: "h-10 px-5 text-md",
+        lg: "h-14 px-8 text-lg",
       },
       disabled: {
         true: [

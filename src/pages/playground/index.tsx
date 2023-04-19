@@ -35,6 +35,23 @@ const Page: NextPage = () => {
           </Container>
         </Section>
 
+        <Section>
+          <Container>
+            <Typography level="heading1" color="base">
+              hello dude.
+            </Typography>
+            <Typography level="heading1" color="weak">
+              hello dude.
+            </Typography>
+            <Typography level="heading1" color="weaker">
+              hello dude.
+            </Typography>
+            <Typography level="heading1" color="primary">
+              hello dude.
+            </Typography>
+          </Container>
+        </Section>
+
         <Section palette="accent">
           <Container className="space-y-8">
             <AvatarGroup>
