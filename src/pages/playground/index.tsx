@@ -129,10 +129,10 @@ const Page: NextPage = () => {
 
         <Section>
           <Container>
-            <Card background="base" elevation="low">
+            <Card palette="base" elevation="low">
               <CardContent />
             </Card>
-            <Card className="mt-6" background="accent-raised" elevation="high">
+            <Card className="mt-6" palette="accent-raised" elevation="high">
               <CardContent>
                 <AvatarContainer>
                   <Avatar src="https://placekitten.com/220/220">{`CF`}</Avatar>

@@ -10,22 +10,34 @@ import {
   SplitContentLeft,
   SplitContentRight,
 } from "@ui/SplitContent";
-import { ButtonLink } from "@ui/Button";
 import { PUBLIC } from "@/config/routes";
 import { Card, CardContent } from "@ui/Card";
 import { Figure } from "@ui/Figure";
+import { Link } from "@ui/Link";
+
+import { FiExternalLink } from "react-icons/fi";
 
 const Page: NextPage = () => {
   const CONTENT = {
     hero: {
       heading: "Max Randle",
       body: "Find out a little bit about me, download my résumé, play around with some of my embedded projects.",
+      media: PUBLIC.media.maxProfilePicture,
     },
     workSection: {
       heading: "My work",
-      body: "I am a Front-End Software Engineer with a passion for creating fast, responsive, seamless, and accessible web applications. I value readability, consistency, simplicity, and agnosticism as the core paradigms of my coding mantra. In my current role I embrace these values to write professional grade react components at a very high standard.",
-      action: "résumé",
+      body: "I am a Front-End Software Engineer with a passion for creating fast, responsive, seamless, and accessible web applications. I value readability, consistency, simplicity, and agnosticism as the core paradigms of my coding mantra. These values are reflected in my work as I produce code that scales well and is easily maintainable.",
+      action: "Résumé",
+      media: PUBLIC.media.maxArtExhibit,
     },
+    stack: [
+      { icon: "c", name: "TypeScript", description: "" },
+      { icon: "c", name: "React", description: "" },
+      { icon: "c", name: "Next.js", description: "" },
+      { icon: "c", name: "TailwindCSS", description: "" },
+      { icon: "c", name: "SASS", description: "" },
+      { icon: "c", name: "Node.js", description: "" },
+    ],
   };
 
   return (
@@ -36,26 +48,44 @@ const Page: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="min-h-screen overflow-hidden bg-base-200 pb-20 dark:bg-base-900">
+      <main className="min-h-screen overflow-hidden bg-base-100 pb-20 dark:bg-base-900">
         <AppNavHeader />
-        <Section>
+        <Section animateIn="bounce">
           <Container>
-            <Typography className="text-center" level="heading1" color="base">
-              {CONTENT.hero.heading}
-            </Typography>
-            <Typography
-              className="mx-auto mt-6 max-w-xl text-center"
-              level="heading3"
-              color="weaker"
-            >
-              {CONTENT.hero.body}
-            </Typography>
+            <SplitContent>
+              <SplitContentRight>
+                <Typography
+                  className="text-center md:text-left"
+                  level="heading1"
+                >
+                  {CONTENT.hero.heading}
+                </Typography>
+              </SplitContentRight>
+              <SplitContentLeft>
+                <Figure
+                  className="mx-auto aspect-square max-h-60 rounded-full"
+                  src={CONTENT.hero.media}
+                  alt="me"
+                  width={160}
+                  height={160}
+                />
+              </SplitContentLeft>
+              <SplitContentRight>
+                <Typography
+                  className="mx-auto max-w-xl text-center md:text-left"
+                  level="heading3"
+                  color="weaker"
+                >
+                  {CONTENT.hero.body}
+                </Typography>
+              </SplitContentRight>
+            </SplitContent>
           </Container>
         </Section>
 
-        <Section>
-          <Container>
-            <Card elevation={"high"} className="bg-accent-50 dark:bg-base-800">
+        <Section animateIn="bounce">
+          <Container className="text-center md:text-left">
+            <Card palette={"accent-raised"}>
               <CardContent>
                 <SplitContent>
                   <SplitContentLeft>
@@ -65,22 +95,27 @@ const Page: NextPage = () => {
                   </SplitContentLeft>
                   <SplitContentRight>
                     <Figure
-                      className="mx-auto aspect-square max-h-80 rounded-full"
-                      src={PUBLIC.media.maxProfilePicture}
+                      className="mx-auto aspect-square max-w-xs rounded-full"
+                      src={CONTENT.workSection.media}
                       alt="me"
                       width={320}
                       height={320}
                     />
                   </SplitContentRight>
                   <SplitContentLeft>
-                    <Typography color="weaker">
+                    <Typography className="mx-auto max-w-xl" color="weaker">
                       {CONTENT.workSection.body}
                     </Typography>
                   </SplitContentLeft>
                   <SplitContentLeft>
-                    <ButtonLink target="_blank" href={PUBLIC.documents.resume}>
-                      {CONTENT.workSection.action}
-                    </ButtonLink>
+                    <Link
+                      className="inline-flex items-center gap-2 text-xl"
+                      href={PUBLIC.documents.resume}
+                      target="_blank"
+                    >
+                      <p>{CONTENT.workSection.action}</p>
+                      <FiExternalLink />
+                    </Link>
                   </SplitContentLeft>
                 </SplitContent>
               </CardContent>

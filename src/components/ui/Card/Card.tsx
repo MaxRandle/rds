@@ -2,10 +2,10 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
 const CardVariants = cva(
-  ["bg-base-50 dark:bg-base-800 rounded-lg overflow-hidden"],
+  ["bg-base-50 dark:bg-base-800 rounded-xl overflow-hidden"],
   {
     variants: {
-      background: {
+      palette: {
         base: "bg-base-50 dark:bg-base-900",
         raised: "bg-base-200 dark:bg-base-800",
         accent: "bg-accent-50 dark:bg-accent-900",
@@ -18,7 +18,7 @@ const CardVariants = cva(
       },
     },
     defaultVariants: {
-      background: "raised",
+      palette: "raised",
       elevation: "low",
     },
   }
@@ -29,11 +29,11 @@ export type CardProps = React.ComponentPropsWithoutRef<"div"> &
 
 export const Card: React.FC<CardProps> = ({
   className,
-  background,
+  palette,
   elevation,
   ...props
 }) => {
-  const classes = CardVariants({ background, elevation });
+  const classes = CardVariants({ palette, elevation });
 
   return <div className={twMerge(classes, className)} {...props} />;
 };

@@ -32,16 +32,16 @@ export const SplitContent: React.FC<SplitContentProps> = ({
 
   return (
     <div
-      className={twMerge("flex w-full gap-4 sm:gap-6", className)}
+      className={twMerge("flex w-full gap-6 sm:gap-10", className)}
       {...props}
     >
-      <div className="flex w-full flex-col gap-4 sm:gap-6 md:hidden">
+      <div className="flex w-full flex-col gap-6 sm:gap-10 md:hidden">
         {children}
       </div>
-      <div className="hidden w-full flex-col gap-6 md:flex md:justify-center">
+      <div className="hidden w-full flex-col gap-10 md:flex md:justify-center">
         {leftChildren}
       </div>
-      <div className="hidden w-full flex-col gap-6 md:flex md:justify-center">
+      <div className="hidden w-full flex-col gap-10 md:flex md:justify-center">
         {rightChildren}
       </div>
     </div>

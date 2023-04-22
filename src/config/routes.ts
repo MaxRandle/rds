@@ -10,5 +10,6 @@ export const PUBLIC = {
   },
   media: {
     maxProfilePicture: "/media/max-crop.jpg",
+    maxArtExhibit: "/media/max-art.jpg",
   },
 };
