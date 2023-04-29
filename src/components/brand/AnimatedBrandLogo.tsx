@@ -36,7 +36,7 @@ export const AnimatedBrandLogo: React.FC<AnimatedBrandLogoProps> = ({
       {...props}
     >
       <motion.path
-        className="fill-primary-400 stroke-primary-400 stroke-2 dark:fill-primary-400 dark:stroke-primary-400"
+        className="fill-primary-700 stroke-primary-700 stroke-2 dark:fill-primary-700 dark:stroke-primary-700"
         variants={{
           hidden: {
             pathLength: 0,
@@ -59,7 +59,7 @@ export const AnimatedBrandLogo: React.FC<AnimatedBrandLogoProps> = ({
         d="m0 0 20 32L0 64h20l12-20h-8l16-24h-8L20 0H0Z"
       />
       <motion.path
-        className="fill-primary-800 stroke-primary-800 stroke-2 dark:fill-accent-200 dark:stroke-accent-200"
+        className="fill-primary-1300 stroke-primary-1300 stroke-2 dark:fill-base-300 dark:stroke-base-300"
         variants={{
           hidden: {
             pathLength: 0,

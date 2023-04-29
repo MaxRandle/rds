@@ -6,15 +6,15 @@ const InputVariants = cva(
     "border appearance-none px-4 py-3 rounded-lg focus:outline-none focus:ring-4 w-full",
 
     // base classes
-    "text-base-600 bg-base-50 border-base-300 focus:border-primary-400 ring-primary-200",
-    "dark:text-base-300 dark:bg-base-900 dark:border-base-500 dark:focus:border-primary-400 dark:ring-primary-700",
+    "text-base-1100 bg-base-100 border-base-400 focus:border-primary-500 ring-primary-300",
+    "dark:text-base-400 dark:bg-base-1600 dark:border-base-1200 dark:focus:border-primary-900 dark:ring-primary-1300",
 
     // invalid classes
-    "invalid:text-danger-600 invalid:bg-danger-50 invalid:border-danger-300 invalid:focus:border-danger-400 invalid:ring-danger-200",
-    "invalid:dark:text-danger-300 invalid:dark:bg-danger-900 invalid:dark:border-danger-500 invalid:dark:focus:border-danger-400 invalid:dark:ring-danger-700",
+    "invalid:text-danger-1100 invalid:bg-danger-100 invalid:border-danger-400 invalid:focus:border-danger-500 invalid:ring-danger-300",
+    "invalid:dark:text-danger-400 invalid:dark:bg-danger-1600 invalid:dark:border-danger-1200 invalid:dark:focus:border-danger-900 invalid:dark:ring-danger-1300",
 
     // disabled classes
-    "disabled:bg-base-200 dark:disabled:bg-base-800 disabled:opacity-60",
+    "disabled:bg-base-300 disabled:dark:bg-base-1200 disabled:opacity-60",
 
     // group classes
     "group-[]/input-group:focus:relative",

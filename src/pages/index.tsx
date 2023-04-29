@@ -17,7 +17,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="min-h-screen overflow-hidden bg-base-100 pb-20 dark:bg-base-900">
+      <main className="min-h-screen overflow-hidden pb-20">
         <Section>
           <Container className="flex flex-col items-center">
             <AnimatedBrandLogo />

@@ -2,14 +2,12 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
 const CardVariants = cva(
-  ["bg-base-50 dark:bg-base-800 rounded-xl overflow-hidden"],
+  ["rounded-lg overflow-hidden border border-base-400 dark:border-base-1300"],
   {
     variants: {
       palette: {
-        base: "bg-base-50 dark:bg-base-900",
-        raised: "bg-base-200 dark:bg-base-800",
-        accent: "bg-accent-50 dark:bg-accent-900",
-        "accent-raised": "bg-accent-200 dark:bg-accent-800",
+        base: "bg-base-100 dark:bg-base-1600",
+        surface: "bg-base-200 dark:bg-base-1500",
       },
       elevation: {
         flat: "",
@@ -18,7 +16,7 @@ const CardVariants = cva(
       },
     },
     defaultVariants: {
-      palette: "raised",
+      palette: "surface",
       elevation: "low",
     },
   }

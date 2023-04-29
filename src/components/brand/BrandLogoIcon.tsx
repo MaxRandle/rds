@@ -21,11 +21,11 @@ export const BrandLogoIcon: React.FC<SvgProps> = ({ size = 32, ...props }) => (
     {...props}
   >
     <path
-      className="fill-primary-400"
+      className="fill-primary-700"
       d="m0 0 20 32L0 64h20l12-20h-8l16-24h-8L20 0H0Z"
     />
     <path
-      className="fill-accent-200"
+      className="fill-base-300"
       d="M64 64 44 32 64 0H44L32 20h8L24 44h8l12 20h20Z"
     />
   </svg>

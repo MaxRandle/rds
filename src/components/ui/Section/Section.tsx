@@ -8,22 +8,10 @@ const sectionClasses = cva("my-20 sm:my-32", {
      * @summary specifies the background color
      */
     palette: {
+      surface: ["my-0 sm:my-0 py-20 sm:py-32", "bg-base-200 dark:bg-base-1500"],
       primary: [
         "my-0 sm:my-0 py-20 sm:py-32",
-        "bg-primary-300 dark:bg-primary-800",
-      ],
-      accent: [
-        "my-0 sm:my-0 py-20 sm:py-32",
-        "bg-accent-300 dark:bg-accent-800",
-      ],
-      "primary-dark": [
-        "my-0 sm:my-0 py-20 sm:py-32",
-        "dark:bg-primary-950 bg-primary-800",
-        "group/darkmode",
-      ],
-      "accent-dark": [
-        "my-0 sm:my-0 py-20 sm:py-32",
-        "bg-accent-800",
+        "bg-primary-1200 dark:bg-primary-1500",
         "group/darkmode",
       ],
     },

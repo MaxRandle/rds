@@ -27,7 +27,7 @@ const Page: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="min-h-screen overflow-hidden bg-base-100 pb-20 dark:bg-base-900">
+      <main className="min-h-screen overflow-hidden">
         <AppNavHeader />
         <Section>
           <Container>
@@ -52,7 +52,7 @@ const Page: NextPage = () => {
           </Container>
         </Section>
 
-        <Section palette="accent">
+        <Section>
           <Container className="space-y-8">
             <AvatarGroup>
               <Avatar
@@ -129,10 +129,7 @@ const Page: NextPage = () => {
 
         <Section>
           <Container>
-            <Card palette="base" elevation="low">
-              <CardContent />
-            </Card>
-            <Card className="mt-6" palette="accent-raised" elevation="high">
+            <Card className="mt-6" elevation="high">
               <CardContent>
                 <AvatarContainer>
                   <Avatar src="https://placekitten.com/220/220">{`CF`}</Avatar>
@@ -190,39 +187,39 @@ const Page: NextPage = () => {
           </Container>
         </Section>
 
-        <Section>
+        <Section palette={"surface"}>
           <Container>
-            <SplitContent>
+            <SplitContent breakpoint={"sm"}>
               <SplitContentLeft>
-                <Card>
+                <Card palette={"base"}>
                   <CardContent>
                     <Typography>First</Typography>
                   </CardContent>
                 </Card>
               </SplitContentLeft>
               <SplitContentRight>
-                <Card>
+                <Card palette={"base"}>
                   <CardContent>
                     <Typography>Second</Typography>
                   </CardContent>
                 </Card>
               </SplitContentRight>
               <SplitContentRight>
-                <Card>
+                <Card palette={"base"}>
                   <CardContent>
                     <Typography>Third</Typography>
                   </CardContent>
                 </Card>
               </SplitContentRight>
               <SplitContentLeft>
-                <Card>
+                <Card palette={"base"}>
                   <CardContent>
                     <Typography>Fourth</Typography>
                   </CardContent>
                 </Card>
               </SplitContentLeft>
               <SplitContentLeft>
-                <Card>
+                <Card palette={"base"}>
                   <CardContent>
                     <Typography>Fifth</Typography>
                   </CardContent>

@@ -6,7 +6,7 @@ export const CardContent: React.FC<CardContentProps> = ({
   className,
   ...props
 }) => {
-  const classes = "p-6 md:p-10";
+  const classes = "p-6";
 
   return <div className={twMerge(classes, className)} {...props} />;
 };

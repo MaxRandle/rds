@@ -4,8 +4,8 @@ import { twMerge } from "tailwind-merge";
 const InputAdornmentVariants = cva(
   [
     "border rounded-lg px-4 py-3",
-    "text-base-600 bg-base-50 border-base-300 ",
-    "dark:text-base-300 dark:bg-base-900 dark:border-base-500",
+    "text-base-1100 bg-base-100 border-base-400",
+    "dark:text-base-400 dark:bg-base-1600 dark:border-base-1200",
 
     // group classes
     "group-[]/input-group:rounded-none",

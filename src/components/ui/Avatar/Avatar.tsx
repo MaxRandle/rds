@@ -5,8 +5,8 @@ import { type VariantProps, cva } from "class-variance-authority";
 
 const AvatarVariants = cva(
   [
-    "text-primary-600 dark:text-primary-300",
-    "bg-primary-200 dark:bg-base-800 ring-base-100 dark:ring-base-900",
+    "text-primary-1000 dark:text-primary-600",
+    "bg-primary-300 dark:bg-base-1400 ring-base-100 dark:ring-base-1600",
     "relative shrink-0 overflow-hidden inline-block rounded-full",
     "group-[]/avatar-group:first:ml-0",
   ],

@@ -4,7 +4,7 @@ import NextLink from "next/link";
 
 const buttonClasses = cva(
   [
-    "font-semibold tracking-wider border rounded-full shadow-sm inline-flex items-center justify-center gap-4",
+    "font-semibold tracking-wider border rounded-full shadow-sm inline-flex items-center justify-center gap-4 transition-colors",
 
     "group-[]/button-group:px-4",
     "group-[]/button-group:rounded-none",
@@ -23,19 +23,19 @@ const buttonClasses = cva(
        */
       intent: {
         primary: [
-          "text-base-50",
-          "bg-primary-600 hover:bg-primary-700 dark:bg-primary-700 dark:hover:bg-primary-600",
-          "border-primary-600 hover:border-primary-700 dark:border-primary-700 dark:hover:border-primary-600",
+          "text-white",
+          "bg-primary-1000 hover:bg-primary-900",
+          "border-primary-1000 hover:border-primary-900",
         ],
         secondary: [
-          "text-base-900 dark:text-base-50",
-          "bg-base-50 hover:bg-base-100 dark:bg-base-900 dark:hover:bg-base-800",
-          "border-base-300 hover:border-base-400 dark:border-base-600 hover:dark:border-base-500",
+          "text-base-1200 dark:text-base-400",
+          "bg-base-100 hover:bg-base-200 dark:bg-base-1600 dark:hover:bg-base-1400",
+          "border-base-400 hover:border-base-600 dark:border-base-1200 hover:dark:border-base-1000",
         ],
         destructive: [
-          "text-base-50",
-          "bg-danger-600 hover:bg-danger-700 dark:bg-danger-700 dark:hover:bg-danger-600",
-          "border-danger-700 hover:border-danger-800",
+          "text-white",
+          "bg-danger-1000 hover:bg-danger-900",
+          "border-danger-1000 hover:border-danger-900",
         ],
       },
       /**

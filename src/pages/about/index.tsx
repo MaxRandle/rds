@@ -48,7 +48,7 @@ const Page: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="min-h-screen overflow-hidden bg-base-100 pb-20 dark:bg-base-900">
+      <main className="min-h-screen overflow-hidden">
         <AppNavHeader />
         <Section animateIn="bounce">
           <Container>
@@ -85,7 +85,7 @@ const Page: NextPage = () => {
 
         <Section animateIn="bounce">
           <Container className="text-center md:text-left">
-            <Card palette={"accent-raised"}>
+            <Card>
               <CardContent>
                 <SplitContent>
                   <SplitContentLeft>
