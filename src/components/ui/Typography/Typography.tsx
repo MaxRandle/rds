@@ -8,11 +8,11 @@ const TypographyClasses = cva("text-base", {
      */
     color: {
       base: "text-black dark:text-white group-[]/darkmode:text-white",
-      weak: "text-base-1100 dark:text-base-400 group-[]/darkmode:text-base-400",
+      weak: "text-base-1200 dark:text-base-400 group-[]/darkmode:text-base-400",
       weaker:
-        "text-base-900 dark:text-base-600 group-[]/darkmode:text-base-600",
+        "text-base-1000 dark:text-base-600 group-[]/darkmode:text-base-600",
       primary:
-        "text-primary-900 dark:text-primary-600 group-[]/darkmode:text-primary-600",
+        "text-primary-1000 dark:text-primary-600 group-[]/darkmode:text-primary-600",
     },
     /**
      * @summary specifies the size of the text. Defaults to `body`

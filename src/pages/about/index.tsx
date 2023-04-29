@@ -89,7 +89,7 @@ const Page: NextPage = () => {
               <CardContent>
                 <SplitContent>
                   <SplitContentLeft>
-                    <Typography level="heading2" color="base">
+                    <Typography level="heading2">
                       {CONTENT.workSection.heading}
                     </Typography>
                   </SplitContentLeft>
