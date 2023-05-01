@@ -12,11 +12,12 @@ import { Typography } from "@ui/Typography";
 import { Alert } from "@ui/Alert";
 import { FiArrowLeft, FiArrowRight, FiPlus } from "react-icons/fi";
 import { Input, InputAdornment, InputGroup } from "@ui/Input";
+
+import { SplitContainer, SplitItem } from "@ui/Split";
 import {
-  SplitContent,
-  SplitContentLeft,
-  SplitContentRight,
-} from "@ui/SplitContent";
+  fadeAndSlideInFromLeft,
+  fadeAndSlideInFromRight,
+} from "@/utils/animations";
 
 const Page: NextPage = () => {
   return (
@@ -189,43 +190,75 @@ const Page: NextPage = () => {
 
         <Section palette={"surface"}>
           <Container>
-            <SplitContent breakpoint={"sm"}>
-              <SplitContentLeft>
+            <SplitContainer
+              className="mt-20"
+              variants={{
+                visible: {
+                  transition: {
+                    delayChildren: 0,
+                    staggerChildren: 0.5,
+                  },
+                },
+              }}
+              initial="hidden"
+              animate="visible"
+            >
+              <SplitItem
+                className="row-span-2"
+                side="left"
+                variants={fadeAndSlideInFromLeft}
+              >
                 <Card palette={"base"}>
                   <CardContent>
-                    <Typography>First</Typography>
+                    <Typography>1 Left</Typography>
                   </CardContent>
                 </Card>
-              </SplitContentLeft>
-              <SplitContentRight>
+              </SplitItem>
+              <SplitItem
+                className="row-span-2 row-start-2"
+                side="right"
+                variants={fadeAndSlideInFromRight}
+              >
                 <Card palette={"base"}>
                   <CardContent>
-                    <Typography>Second</Typography>
+                    <Typography>2 Right</Typography>
                   </CardContent>
                 </Card>
-              </SplitContentRight>
-              <SplitContentRight>
+              </SplitItem>
+              <SplitItem
+                className="row-span-2"
+                side="right"
+                variants={fadeAndSlideInFromRight}
+              >
                 <Card palette={"base"}>
                   <CardContent>
-                    <Typography>Third</Typography>
+                    <Typography>3 Right</Typography>
                   </CardContent>
                 </Card>
-              </SplitContentRight>
-              <SplitContentLeft>
+              </SplitItem>
+              <SplitItem
+                className="row-span-2"
+                side="left"
+                variants={fadeAndSlideInFromLeft}
+              >
                 <Card palette={"base"}>
                   <CardContent>
-                    <Typography>Fourth</Typography>
+                    <Typography>4 Left</Typography>
                   </CardContent>
                 </Card>
-              </SplitContentLeft>
-              <SplitContentLeft>
+              </SplitItem>
+              <SplitItem
+                className="row-span-2"
+                side="left"
+                variants={fadeAndSlideInFromLeft}
+              >
                 <Card palette={"base"}>
                   <CardContent>
-                    <Typography>Fifth</Typography>
+                    <Typography>5 Left</Typography>
                   </CardContent>
                 </Card>
-              </SplitContentLeft>
-            </SplitContent>
+              </SplitItem>
+            </SplitContainer>
           </Container>
         </Section>
       </main>

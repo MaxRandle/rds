@@ -21,21 +21,23 @@
     "scope": "typescript,typescriptreact",
     "body": [
       "import { cva, type VariantProps } from 'class-variance-authority';",
+      "import React from 'react';",
       "import { twMerge } from 'tailwind-merge';",
       "",
-      "const ${1:Component}Variants = cva([''], { variants: {} });",
+      "const ${1:ComponentName}Variants = cva([''], { variants: {} });",
       "",
-      "export type ${1:Component}Props = React.ComponentPropsWithoutRef<'${2:div}'> &",
-      "  VariantProps<typeof ${1:Component}Variants>;",
+      "export type ${1:ComponentName}Props = React.ComponentPropsWithoutRef<'${2:div}'> &",
+      "  VariantProps<typeof ${1:ComponentName}Variants>;",
       "",
-      "export const ${1:Component}: React.FC<${1:Component}Props> = ({",
-      "  className,",
-      "  ...props",
-      "}) => {",
-      "  const classes = ${1:Component}Variants({});",
+      "export const ${1:ComponentName} = React.forwardRef<React.ElementRef<'${2:div}'>, ${1:ComponentName}Props>(",
+      "  ({ className, ...props }, ref) => {",
+      "    const classes = ${1:ComponentName}Variants({});",
       "",
-      "  return <${2:div} className={twMerge(classes, className)} {...props} />;",
-      "};"
+      "    return <${2:div} ref={ref} className={twMerge(classes, className)} {...props} />;",
+      "  }",
+      ");",
+      "",
+      "${1:ComponentName}.displayName = '${1:ComponentName}';"
     ],
     "description": "Create a new React Functional Component"
   }

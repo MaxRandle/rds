@@ -5,11 +5,7 @@ import { Section } from "@ui/Section";
 import { Container } from "@ui/Container";
 import { Typography } from "@ui/Typography";
 import { AppNavHeader } from "@/components/composite/AppNavHeader";
-import {
-  SplitContent,
-  SplitContentLeft,
-  SplitContentRight,
-} from "@ui/SplitContent";
+
 import { PUBLIC } from "@/config/routes";
 import { Card, CardContent } from "@ui/Card";
 import { Figure } from "@ui/Figure";
@@ -17,11 +13,29 @@ import { Link } from "@ui/Link";
 
 import { FiExternalLink } from "react-icons/fi";
 
+import {
+  SiNextdotjs,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
+import {
+  fadeAndSlideInFromLeft,
+  fadeAndSlideInFromRight,
+} from "@/utils/animations";
+import { SplitContainer, SplitItem } from "@ui/Split";
+import { RadixUiLogo } from "@/components/svgs/RadixUiLogo";
+import { ReactHookFormLogo } from "@/components/svgs/ReactHookFormLogo";
+import { ZodLogo } from "@/components/svgs/ZodLogo";
+import { TanStackLogo } from "@/components/svgs/TanStackLogo";
+import { CvaLogo } from "@/components/svgs/CvaLogo";
+import { FramerLogo } from "@/components/svgs/FramerLogo";
+
 const Page: NextPage = () => {
   const CONTENT = {
     hero: {
       heading: "Max Randle",
-      body: "Find out a little bit about me, download my résumé, play around with some of my embedded projects.",
+      body: "Find out a little bit about me, download my résumé, and play around with my embedded projects.",
       media: PUBLIC.media.maxProfilePicture,
     },
     workSection: {
@@ -30,14 +44,64 @@ const Page: NextPage = () => {
       action: "Résumé",
       media: PUBLIC.media.maxArtExhibit,
     },
-    stack: [
-      { icon: "c", name: "TypeScript", description: "" },
-      { icon: "c", name: "React", description: "" },
-      { icon: "c", name: "Next.js", description: "" },
-      { icon: "c", name: "TailwindCSS", description: "" },
-      { icon: "c", name: "SASS", description: "" },
-      { icon: "c", name: "Node.js", description: "" },
-    ],
+    stack: {
+      heading: "My Front-End stack",
+      tech: [
+        {
+          icon: SiTypescript,
+          name: "TypeScript",
+          description:
+            "TypeScript is essential and JavaScript is not a viable language for building production applications.",
+        },
+        {
+          icon: SiReact,
+          name: "React.js",
+          description:
+            "This legendary framework continues to make new strides as it rises into its third great era with the introduction of server components.",
+        },
+        {
+          icon: SiNextdotjs,
+          name: "Next 13",
+          description:
+            "What better way to build an application than with the tools and capabilities afforded by Next.js?",
+        },
+        {
+          icon: SiTailwindcss,
+          name: "TailwindCSS",
+          description:
+            "The best thing to happen to CSS since flexbox. Much more than syntax, Tailwind is a design system all on its own.",
+        },
+      ],
+    },
+    toolkit: {
+      heading: "Front-End toolkit and personal favourites",
+      tools: [
+        {
+          name: "React Hook Form",
+          icon: ReactHookFormLogo,
+        },
+        {
+          name: "Zod",
+          icon: ZodLogo,
+        },
+        {
+          name: "Radix UI",
+          icon: RadixUiLogo,
+        },
+        {
+          name: "TanStack Query",
+          icon: TanStackLogo,
+        },
+        {
+          name: "Class Variance Authority",
+          icon: CvaLogo,
+        },
+        {
+          name: "Framer Motion",
+          icon: FramerLogo,
+        },
+      ],
+    },
   };
 
   return (
@@ -50,27 +114,43 @@ const Page: NextPage = () => {
 
       <main className="min-h-screen overflow-hidden">
         <AppNavHeader />
-        <Section animateIn="bounce">
+        <Section>
           <Container>
-            <SplitContent>
-              <SplitContentRight>
+            <SplitContainer
+              className="mt-10"
+              variants={{
+                visible: {
+                  transition: {
+                    delayChildren: 0,
+                    staggerChildren: 0.5,
+                  },
+                },
+              }}
+              initial="hidden"
+              animate="visible"
+            >
+              <SplitItem side="right" variants={fadeAndSlideInFromRight}>
                 <Typography
                   className="text-center md:text-left"
                   level="heading1"
                 >
                   {CONTENT.hero.heading}
                 </Typography>
-              </SplitContentRight>
-              <SplitContentLeft>
+              </SplitItem>
+              <SplitItem
+                className="row-span-2"
+                side="left"
+                variants={fadeAndSlideInFromLeft}
+              >
                 <Figure
-                  className="mx-auto aspect-square max-h-60 rounded-full"
+                  className="mx-auto aspect-square max-h-60 min-h-[12rem] rounded-full"
                   src={CONTENT.hero.media}
                   alt="me"
                   width={160}
                   height={160}
                 />
-              </SplitContentLeft>
-              <SplitContentRight>
+              </SplitItem>
+              <SplitItem side="right" variants={fadeAndSlideInFromRight}>
                 <Typography
                   className="mx-auto max-w-xl text-center md:text-left"
                   level="heading3"
@@ -78,8 +158,8 @@ const Page: NextPage = () => {
                 >
                   {CONTENT.hero.body}
                 </Typography>
-              </SplitContentRight>
-            </SplitContent>
+              </SplitItem>
+            </SplitContainer>
           </Container>
         </Section>
 
@@ -87,13 +167,13 @@ const Page: NextPage = () => {
           <Container className="text-center md:text-left">
             <Card>
               <CardContent>
-                <SplitContent>
-                  <SplitContentLeft>
+                <SplitContainer>
+                  <SplitItem side="left">
                     <Typography level="heading2">
                       {CONTENT.workSection.heading}
                     </Typography>
-                  </SplitContentLeft>
-                  <SplitContentRight>
+                  </SplitItem>
+                  <SplitItem className="row-span-3" side="right">
                     <Figure
                       className="mx-auto aspect-square max-w-xs rounded-full"
                       src={CONTENT.workSection.media}
@@ -101,13 +181,13 @@ const Page: NextPage = () => {
                       width={320}
                       height={320}
                     />
-                  </SplitContentRight>
-                  <SplitContentLeft>
+                  </SplitItem>
+                  <SplitItem side="left">
                     <Typography className="mx-auto max-w-xl" color="weaker">
                       {CONTENT.workSection.body}
                     </Typography>
-                  </SplitContentLeft>
-                  <SplitContentLeft>
+                  </SplitItem>
+                  <SplitItem side="left">
                     <Link
                       className="inline-flex items-center gap-2 text-xl"
                       href={PUBLIC.documents.resume}
@@ -116,10 +196,54 @@ const Page: NextPage = () => {
                       <p>{CONTENT.workSection.action}</p>
                       <FiExternalLink />
                     </Link>
-                  </SplitContentLeft>
-                </SplitContent>
+                  </SplitItem>
+                </SplitContainer>
               </CardContent>
             </Card>
+          </Container>
+        </Section>
+
+        <Section palette={"surface"}>
+          <Container>
+            <Typography level={"heading2"}>{CONTENT.stack.heading}</Typography>
+            <div className="mt-20 grid gap-4 sm:grid-cols-2">
+              {CONTENT.stack.tech.map(({ description, icon: Icon, name }) => (
+                <Card palette={"base"} key={name}>
+                  <CardContent>
+                    <Icon size={40} />
+                    <Typography level={"subheading"} className="mt-4">
+                      {name}
+                    </Typography>
+                    <Typography
+                      color={"weaker"}
+                      level={"caption"}
+                      className="mt-4"
+                    >
+                      {description}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </Section>
+
+        <Section>
+          <Container className="mx-auto max-w-2xl text-center">
+            <Typography className="" level={"heading2"}>
+              {CONTENT.toolkit.heading}
+            </Typography>
+
+            <div className="mt-20 flex flex-wrap justify-center gap-4">
+              {CONTENT.toolkit.tools.map(({ name, icon: Icon }) => (
+                <Card key={name}>
+                  <CardContent className="flex gap-4">
+                    <Icon className="shrink-0" size={32} />
+                    <Typography level={"heading3"}>{name}</Typography>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </Container>
         </Section>
       </main>

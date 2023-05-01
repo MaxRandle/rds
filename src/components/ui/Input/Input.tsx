@@ -7,11 +7,11 @@ const InputVariants = cva(
 
     // base classes
     "text-base-1100 bg-base-100 border-base-400 focus:border-primary-500 ring-primary-300",
-    "dark:text-base-400 dark:bg-base-1600 dark:border-base-1200 dark:focus:border-primary-900 dark:ring-primary-1300",
+    "dark:text-base-400 dark:bg-base-1600 dark:border-base-1200 dark:focus:border-primary-700 dark:ring-primary-1300",
 
     // invalid classes
-    "invalid:text-danger-1100 invalid:bg-danger-100 invalid:border-danger-400 invalid:focus:border-danger-500 invalid:ring-danger-300",
-    "invalid:dark:text-danger-400 invalid:dark:bg-danger-1600 invalid:dark:border-danger-1200 invalid:dark:focus:border-danger-900 invalid:dark:ring-danger-1300",
+    "invalid:text-danger-1100 invalid:bg-danger-200 invalid:border-danger-500 invalid:focus:border-danger-700 invalid:ring-danger-300",
+    "invalid:dark:text-danger-400 invalid:dark:bg-danger-1500 invalid:dark:border-danger-1000 invalid:dark:focus:border-danger-700 invalid:dark:ring-danger-1300",
 
     // disabled classes
     "disabled:bg-base-300 disabled:dark:bg-base-1200 disabled:opacity-60",

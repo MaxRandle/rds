@@ -1,12 +1,19 @@
+import { cva, type VariantProps } from "class-variance-authority";
+import React from "react";
 import { twMerge } from "tailwind-merge";
 
-export type ContainerProps = React.ComponentPropsWithoutRef<"div">;
+const ContainerVariants = cva(["container"], { variants: {} });
 
-export const Container: React.FC<ContainerProps> = ({
-  className,
-  ...props
-}) => {
-  const classes = "container";
+export type ContainerProps = React.ComponentPropsWithoutRef<"div"> &
+  VariantProps<typeof ContainerVariants>;
 
-  return <div className={twMerge(classes, className)} {...props} />;
-};
+export const Container = React.forwardRef<
+  React.ElementRef<"div">,
+  ContainerProps
+>(({ className, ...props }, ref) => {
+  const classes = ContainerVariants({});
+
+  return <div ref={ref} className={twMerge(classes, className)} {...props} />;
+});
+
+Container.displayName = "Container";

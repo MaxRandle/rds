@@ -3,7 +3,7 @@ import NextLink from "next/link";
 import { twMerge } from "tailwind-merge";
 
 const NavLinkVariants = cva(
-  ["text-lg sm:text-xl leading-loose", "text-base-400 hover:text-white"],
+  ["text-lg sm:text-xl leading-loose", "text-base-500 hover:text-white"],
   {
     variants: {
       /**

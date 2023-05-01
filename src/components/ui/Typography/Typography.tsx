@@ -1,5 +1,6 @@
 import { twMerge } from "tailwind-merge";
 import { cva, type VariantProps } from "class-variance-authority";
+import React from "react";
 
 const TypographyClasses = cva("text-base", {
   variants: {
@@ -10,9 +11,9 @@ const TypographyClasses = cva("text-base", {
       base: "text-black dark:text-white group-[]/darkmode:text-white",
       weak: "text-base-1200 dark:text-base-400 group-[]/darkmode:text-base-400",
       weaker:
-        "text-base-1000 dark:text-base-600 group-[]/darkmode:text-base-600",
+        "text-base-1000 dark:text-base-700 group-[]/darkmode:text-base-700",
       primary:
-        "text-primary-1000 dark:text-primary-600 group-[]/darkmode:text-primary-600",
+        "text-primary-1000 dark:text-primary-700 group-[]/darkmode:text-primary-700",
     },
     /**
      * @summary specifies the size of the text. Defaults to `body`
@@ -40,14 +41,14 @@ export type TypographyProps = React.ComponentPropsWithoutRef<"p"> &
     as?: "p" | "h3" | "h2" | "h1";
   };
 
-export const Typography: React.FC<TypographyProps> = ({
-  color,
-  level,
-  as: Component = "p",
-  className,
-  ...props
-}) => {
+export const Typography = React.forwardRef<
+  HTMLParagraphElement,
+  TypographyProps
+>(({ color, level, as: Component = "p", className, ...props }, ref) => {
   const classes = TypographyClasses({ color, level });
 
-  return <Component className={twMerge(classes, className)} {...props} />;
-};
+  return (
+    <Component ref={ref} className={twMerge(classes, className)} {...props} />
+  );
+});
+Typography.displayName = "Typography";
