@@ -18,8 +18,12 @@ import {
   fadeAndSlideInFromLeft,
   fadeAndSlideInFromRight,
 } from "@/utils/animations";
+import { motion } from "framer-motion";
 
 const Page: NextPage = () => {
+  const MotionSplitContainer = motion(SplitContainer);
+  const MotionSplitItem = motion(SplitItem);
+
   return (
     <>
       <Head>
@@ -190,7 +194,7 @@ const Page: NextPage = () => {
 
         <Section palette={"surface"}>
           <Container>
-            <SplitContainer
+            <MotionSplitContainer
               className="mt-20"
               variants={{
                 visible: {
@@ -203,7 +207,7 @@ const Page: NextPage = () => {
               initial="hidden"
               animate="visible"
             >
-              <SplitItem
+              <MotionSplitItem
                 className="row-span-2"
                 side="left"
                 variants={fadeAndSlideInFromLeft}
@@ -213,8 +217,8 @@ const Page: NextPage = () => {
                     <Typography>1 Left</Typography>
                   </CardContent>
                 </Card>
-              </SplitItem>
-              <SplitItem
+              </MotionSplitItem>
+              <MotionSplitItem
                 className="row-span-2 row-start-2"
                 side="right"
                 variants={fadeAndSlideInFromRight}
@@ -224,8 +228,8 @@ const Page: NextPage = () => {
                     <Typography>2 Right</Typography>
                   </CardContent>
                 </Card>
-              </SplitItem>
-              <SplitItem
+              </MotionSplitItem>
+              <MotionSplitItem
                 className="row-span-2"
                 side="right"
                 variants={fadeAndSlideInFromRight}
@@ -235,8 +239,8 @@ const Page: NextPage = () => {
                     <Typography>3 Right</Typography>
                   </CardContent>
                 </Card>
-              </SplitItem>
-              <SplitItem
+              </MotionSplitItem>
+              <MotionSplitItem
                 className="row-span-2"
                 side="left"
                 variants={fadeAndSlideInFromLeft}
@@ -246,8 +250,8 @@ const Page: NextPage = () => {
                     <Typography>4 Left</Typography>
                   </CardContent>
                 </Card>
-              </SplitItem>
-              <SplitItem
+              </MotionSplitItem>
+              <MotionSplitItem
                 className="row-span-2"
                 side="left"
                 variants={fadeAndSlideInFromLeft}
@@ -257,8 +261,8 @@ const Page: NextPage = () => {
                     <Typography>5 Left</Typography>
                   </CardContent>
                 </Card>
-              </SplitItem>
-            </SplitContainer>
+              </MotionSplitItem>
+            </MotionSplitContainer>
           </Container>
         </Section>
       </main>
