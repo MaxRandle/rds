@@ -1,12 +1,12 @@
 import React from "react";
 
-type FramerLogoProps = React.ComponentPropsWithoutRef<"svg"> & {
+type AuthJsLogoProps = React.ComponentPropsWithoutRef<"svg"> & {
   size?: number;
 };
 
-export const FramerLogo = React.forwardRef<
+export const AuthJsLogo = React.forwardRef<
   React.ElementRef<"svg">,
-  FramerLogoProps
+  AuthJsLogoProps
 >(({ size, ...props }, ref) => {
   return (
     <svg
@@ -16,19 +16,17 @@ export const FramerLogo = React.forwardRef<
       style={{
         fillRule: "evenodd",
         clipRule: "evenodd",
-        strokeLinejoin: "round",
-        strokeMiterlimit: 2,
       }}
-      viewBox="0 0 14 21"
+      viewBox="0 0 24 24"
       ref={ref}
       width={size}
       height={size}
       fill="currentcolor"
       {...props}
     >
-      <path d="M0 0h14v7H7zm0 7h7l7 7H7v7l-7-7z" />
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
     </svg>
   );
 });
 
-FramerLogo.displayName = "FramerLogo";
+AuthJsLogo.displayName = "AuthJsLogo";

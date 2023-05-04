@@ -20,6 +20,7 @@ export const ZodLogo = React.forwardRef<React.ElementRef<"svg">, ZodLogoProps>(
         ref={ref}
         width={size}
         height={size}
+        fill="currentcolor"
         {...props}
       >
         <path

@@ -48,9 +48,9 @@ const buttonClasses = cva(
       disabled: {
         true: [
           "opacity-60 pointer-events-none",
-          "text-base-900 dark:text-base-50",
-          "bg-base-300 dark:bg-base-600 hover:bg-base-300 dark:hover:bg-base-600",
-          "border-base-300 dark:border-base-600 hover:border-base-300 dark:hover:border-base-600",
+          "text-base-900 dark:text-base-400",
+          "bg-base-300 dark:bg-base-1000 hover:bg-base-300 dark:hover:bg-base-1000",
+          "border-base-300 dark:border-base-1000 hover:border-base-300 dark:hover:border-base-1000",
         ],
       },
     },

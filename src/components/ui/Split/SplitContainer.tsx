@@ -1,5 +1,3 @@
-import { type MotionProps, motion } from "framer-motion";
-
 import { cva, type VariantProps } from "class-variance-authority";
 import React from "react";
 import { twMerge } from "tailwind-merge";
@@ -17,8 +15,7 @@ const SplitContainerVariants = cva(["flex w-full flex-col gap-4"], {
 });
 
 export type SplitContainerProps = React.ComponentPropsWithoutRef<"div"> &
-  VariantProps<typeof SplitContainerVariants> &
-  MotionProps;
+  VariantProps<typeof SplitContainerVariants>;
 
 export const SplitContainer = React.forwardRef<
   React.ElementRef<"div">,
@@ -26,9 +23,7 @@ export const SplitContainer = React.forwardRef<
 >(({ className, breakpoint, ...props }, ref) => {
   const classes = SplitContainerVariants({ breakpoint });
 
-  return (
-    <motion.div ref={ref} className={twMerge(classes, className)} {...props} />
-  );
+  return <div ref={ref} className={twMerge(classes, className)} {...props} />;
 });
 
 SplitContainer.displayName = "SplitContainer";

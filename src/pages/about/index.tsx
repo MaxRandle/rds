@@ -7,9 +7,11 @@ import { Typography } from "@ui/Typography";
 import { AppNavHeader } from "@/components/composite/AppNavHeader";
 
 import { PUBLIC } from "@/config/routes";
-import { Card, CardContent } from "@ui/Card";
+import { Card, CardContent, CardLink } from "@ui/Card";
 import { Figure } from "@ui/Figure";
 import { Link } from "@ui/Link";
+
+import { motion } from "framer-motion";
 
 import { FiExternalLink } from "react-icons/fi";
 
@@ -30,6 +32,10 @@ import { ZodLogo } from "@/components/svgs/ZodLogo";
 import { TanStackLogo } from "@/components/svgs/TanStackLogo";
 import { CvaLogo } from "@/components/svgs/CvaLogo";
 import { FramerLogo } from "@/components/svgs/FramerLogo";
+import { AuthJsLogo } from "@/components/svgs/AuthJsLogo";
+import { SiPrisma } from "react-icons/si";
+import { T3Logo } from "@/components/svgs/T3Logo";
+import { TrpcLogo } from "@/components/svgs/TrpcLogo";
 
 const Page: NextPage = () => {
   const CONTENT = {
@@ -55,7 +61,7 @@ const Page: NextPage = () => {
         },
         {
           icon: SiReact,
-          name: "React.js",
+          name: "React 18",
           description:
             "This legendary framework continues to make new strides as it rises into its third great era with the introduction of server components.",
         },
@@ -74,35 +80,66 @@ const Page: NextPage = () => {
       ],
     },
     toolkit: {
-      heading: "Front-End toolkit and personal favourites",
+      heading: "Favourite tools and libraries",
       tools: [
+        {
+          name: "TanStack Query",
+          icon: TanStackLogo,
+          url: "https://tanstack.com/query/latest",
+        },
+        {
+          name: "Auth.js",
+          icon: AuthJsLogo,
+          url: "https://authjs.dev/",
+        },
         {
           name: "React Hook Form",
           icon: ReactHookFormLogo,
+          url: "https://react-hook-form.com/",
         },
         {
           name: "Zod",
           icon: ZodLogo,
-        },
-        {
-          name: "Radix UI",
-          icon: RadixUiLogo,
-        },
-        {
-          name: "TanStack Query",
-          icon: TanStackLogo,
-        },
-        {
-          name: "Class Variance Authority",
-          icon: CvaLogo,
+          url: "https://zod.dev/",
         },
         {
           name: "Framer Motion",
           icon: FramerLogo,
+          url: "https://www.framer.com/motion/",
+        },
+        {
+          name: "Radix UI",
+          icon: RadixUiLogo,
+          url: "https://www.radix-ui.com/",
+        },
+        {
+          name: "Prisma",
+          icon: SiPrisma,
+          url: "https://www.prisma.io/",
+        },
+        {
+          name: "Create T3 App",
+          icon: T3Logo,
+          url: "https://create.t3.gg/",
+        },
+        {
+          name: "Class Variance Authority",
+          icon: CvaLogo,
+          url: "https://cva.style/docs",
+        },
+        {
+          name: "tRPC",
+          icon: TrpcLogo,
+          url: "https://trpc.io/",
         },
       ],
     },
   };
+
+  const MotionSplitContainer = motion(SplitContainer);
+  const MotionSplitItem = motion(SplitItem);
+  const MotionCardLink = motion(CardLink);
+  const MotionDiv = motion.div;
 
   return (
     <>
@@ -116,7 +153,7 @@ const Page: NextPage = () => {
         <AppNavHeader />
         <Section>
           <Container>
-            <SplitContainer
+            <MotionSplitContainer
               className="mt-10"
               variants={{
                 visible: {
@@ -129,15 +166,15 @@ const Page: NextPage = () => {
               initial="hidden"
               animate="visible"
             >
-              <SplitItem side="right" variants={fadeAndSlideInFromRight}>
+              <MotionSplitItem side="right" variants={fadeAndSlideInFromRight}>
                 <Typography
                   className="text-center md:text-left"
                   level="heading1"
                 >
                   {CONTENT.hero.heading}
                 </Typography>
-              </SplitItem>
-              <SplitItem
+              </MotionSplitItem>
+              <MotionSplitItem
                 className="row-span-2"
                 side="left"
                 variants={fadeAndSlideInFromLeft}
@@ -149,8 +186,8 @@ const Page: NextPage = () => {
                   width={160}
                   height={160}
                 />
-              </SplitItem>
-              <SplitItem side="right" variants={fadeAndSlideInFromRight}>
+              </MotionSplitItem>
+              <MotionSplitItem side="right" variants={fadeAndSlideInFromRight}>
                 <Typography
                   className="mx-auto max-w-xl text-center md:text-left"
                   level="heading3"
@@ -158,12 +195,16 @@ const Page: NextPage = () => {
                 >
                   {CONTENT.hero.body}
                 </Typography>
-              </SplitItem>
-            </SplitContainer>
+              </MotionSplitItem>
+            </MotionSplitContainer>
           </Container>
         </Section>
 
-        <Section animateIn="bounce">
+        <Container>
+          <hr className="border-base-400 dark:border-base-1300" />
+        </Container>
+
+        <Section>
           <Container className="text-center md:text-left">
             <Card>
               <CardContent>
@@ -229,21 +270,37 @@ const Page: NextPage = () => {
         </Section>
 
         <Section>
-          <Container className="mx-auto max-w-2xl text-center">
+          <Container className="mx-auto max-w-3xl text-center lg:px-6">
             <Typography className="" level={"heading2"}>
               {CONTENT.toolkit.heading}
             </Typography>
-
-            <div className="mt-20 flex flex-wrap justify-center gap-4">
-              {CONTENT.toolkit.tools.map(({ name, icon: Icon }) => (
-                <Card key={name}>
+            <MotionDiv
+              className="mt-20 flex flex-wrap justify-center gap-4"
+              variants={{
+                visible: {
+                  transition: {
+                    delayChildren: 0,
+                    staggerChildren: 0.2,
+                  },
+                },
+              }}
+              initial="hidden"
+              animate="visible"
+            >
+              {CONTENT.toolkit.tools.map(({ name, icon: Icon, url }) => (
+                <MotionCardLink
+                  key={name}
+                  href={url}
+                  target="_blank"
+                  variants={fadeAndSlideInFromLeft}
+                >
                   <CardContent className="flex gap-4">
                     <Icon className="shrink-0" size={32} />
                     <Typography level={"heading3"}>{name}</Typography>
                   </CardContent>
-                </Card>
+                </MotionCardLink>
               ))}
-            </div>
+            </MotionDiv>
           </Container>
         </Section>
       </main>
