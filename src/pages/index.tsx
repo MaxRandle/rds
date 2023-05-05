@@ -7,6 +7,7 @@ import { AnimatedBrandLogo } from "@/components/brand/AnimatedBrandLogo";
 import { ButtonLink } from "@ui/Button";
 import { motion } from "framer-motion";
 import { ROUTES } from "@/config/routes";
+import { fadeAndRiseIn } from "@/utils/animations";
 
 const Home: NextPage = () => {
   return (
@@ -23,16 +24,7 @@ const Home: NextPage = () => {
             <AnimatedBrandLogo />
             <motion.div
               className="mt-20"
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  y: 8,
-                },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                },
-              }}
+              variants={fadeAndRiseIn}
               initial="hidden"
               animate="visible"
               transition={{

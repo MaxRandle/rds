@@ -1,8 +1,8 @@
 import { cva, type VariantProps } from "class-variance-authority";
+import React from "react";
 import { twMerge } from "tailwind-merge";
-import { motion } from "framer-motion";
 
-const sectionClasses = cva("my-20 sm:my-32", {
+const SectionVariants = cva("my-20 sm:my-32", {
   variants: {
     /**
      * @summary specifies the background color
@@ -18,38 +18,15 @@ const sectionClasses = cva("my-20 sm:my-32", {
   },
 });
 
-export type SectionProps = React.ComponentPropsWithoutRef<typeof motion.div> &
-  VariantProps<typeof sectionClasses> & {
-    animateIn?: "bounce";
-  };
+export type SectionProps = React.ComponentPropsWithoutRef<"div"> &
+  VariantProps<typeof SectionVariants>;
 
-export const Section: React.FC<SectionProps> = ({
-  className,
-  palette,
-  animateIn,
-  ...props
-}) => {
-  const classes = sectionClasses({ palette });
+export const Section = React.forwardRef<React.ElementRef<"div">, SectionProps>(
+  ({ className, palette, ...props }, ref) => {
+    const classes = SectionVariants({ palette });
 
-  const animateBounce = {
-    variants: {
-      hidden: {
-        y: 8,
-      },
-      visible: {
-        y: 0,
-      },
-    },
-    initial: "hidden",
-    animate: "visible",
-    transition: { delay: 0.1 },
-  };
+    return <div ref={ref} className={twMerge(classes, className)} {...props} />;
+  }
+);
 
-  return (
-    <motion.div
-      {...(animateIn ? animateBounce : {})}
-      className={twMerge(classes, className)}
-      {...props}
-    />
-  );
-};
+Section.displayName = "Section";

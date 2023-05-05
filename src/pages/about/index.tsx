@@ -9,9 +9,8 @@ import { AppNavHeader } from "@/components/composite/AppNavHeader";
 import { PUBLIC } from "@/config/routes";
 import { Card, CardContent, CardLink } from "@ui/Card";
 import { Figure } from "@ui/Figure";
-import { Link } from "@ui/Link";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 import { FiExternalLink } from "react-icons/fi";
 
@@ -22,10 +21,10 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import {
+  fadeAndRiseIn,
   fadeAndSlideInFromLeft,
   fadeAndSlideInFromRight,
 } from "@/utils/animations";
-import { SplitContainer, SplitItem } from "@ui/Split";
 import { RadixUiLogo } from "@/components/svgs/RadixUiLogo";
 import { ReactHookFormLogo } from "@/components/svgs/ReactHookFormLogo";
 import { ZodLogo } from "@/components/svgs/ZodLogo";
@@ -36,17 +35,20 @@ import { AuthJsLogo } from "@/components/svgs/AuthJsLogo";
 import { SiPrisma } from "react-icons/si";
 import { T3Logo } from "@/components/svgs/T3Logo";
 import { TrpcLogo } from "@/components/svgs/TrpcLogo";
+import { useRef } from "react";
+import { ButtonLink } from "@ui/Button";
+import { Divider } from "@ui/Divider/Divider";
 
 const Page: NextPage = () => {
   const CONTENT = {
     hero: {
       heading: "Max Randle",
-      body: "Find out a little bit about me, download my résumé, and play around with my embedded projects.",
+      body: "Software Engineer",
       media: PUBLIC.media.maxProfilePicture,
     },
-    workSection: {
+    work: {
       heading: "My work",
-      body: "I am a Front-End Software Engineer with a passion for creating fast, responsive, seamless, and accessible web applications. I value readability, consistency, simplicity, and agnosticism as the core paradigms of my coding mantra. These values are reflected in my work as I produce code that scales well and is easily maintainable.",
+      body: "I am a Front-End Software Engineer with a passion for creating fast, responsive, accessible, and beautiful web applications using modern tech. I value readability, consistency, simplicity, and agnosticism as the core paradigms of my coding mantra.",
       action: "Résumé",
       media: PUBLIC.media.maxArtExhibit,
     },
@@ -98,9 +100,9 @@ const Page: NextPage = () => {
           url: "https://react-hook-form.com/",
         },
         {
-          name: "Zod",
-          icon: ZodLogo,
-          url: "https://zod.dev/",
+          name: "tRPC",
+          icon: TrpcLogo,
+          url: "https://trpc.io/",
         },
         {
           name: "Framer Motion",
@@ -128,18 +130,27 @@ const Page: NextPage = () => {
           url: "https://cva.style/docs",
         },
         {
-          name: "tRPC",
-          icon: TrpcLogo,
-          url: "https://trpc.io/",
+          name: "Zod",
+          icon: ZodLogo,
+          url: "https://zod.dev/",
         },
       ],
     },
   };
 
-  const MotionSplitContainer = motion(SplitContainer);
-  const MotionSplitItem = motion(SplitItem);
+  const MotionContainer = motion(Container);
   const MotionCardLink = motion(CardLink);
-  const MotionDiv = motion.div;
+  const MotionTypography = motion(Typography);
+  const MotionFigure = motion(Figure);
+
+  const workRef = useRef(null);
+  const workIsInView = useInView(workRef, {
+    margin: "0% 0% -60% 0%",
+  });
+  const toolsRef = useRef(null);
+  const toolsIsInView = useInView(toolsRef, {
+    margin: "0% 0% -60% 0%",
+  });
 
   return (
     <>
@@ -152,96 +163,92 @@ const Page: NextPage = () => {
       <main className="min-h-screen overflow-hidden">
         <AppNavHeader />
         <Section>
-          <Container>
-            <MotionSplitContainer
-              className="mt-10"
-              variants={{
-                visible: {
-                  transition: {
-                    delayChildren: 0,
-                    staggerChildren: 0.5,
-                  },
+          <MotionContainer
+            className="mx-auto flex flex-col items-center justify-center gap-4 text-center sm:flex-row sm:gap-6 sm:text-left"
+            variants={{
+              visible: {
+                transition: {
+                  delayChildren: 0,
+                  staggerChildren: 0.15,
+                  duration: 0.6,
                 },
-              }}
-              initial="hidden"
-              animate="visible"
-            >
-              <MotionSplitItem side="right" variants={fadeAndSlideInFromRight}>
-                <Typography
-                  className="text-center md:text-left"
-                  level="heading1"
-                >
-                  {CONTENT.hero.heading}
-                </Typography>
-              </MotionSplitItem>
-              <MotionSplitItem
-                className="row-span-2"
-                side="left"
-                variants={fadeAndSlideInFromLeft}
+              },
+            }}
+            initial="hidden"
+            animate="visible"
+          >
+            <MotionFigure
+              variants={fadeAndSlideInFromRight}
+              className="aspect-square h-48 w-48 rounded-full sm:mx-0"
+              src={CONTENT.hero.media}
+              alt="me"
+              width={160}
+              height={160}
+            />
+            <div>
+              <MotionTypography
+                variants={fadeAndSlideInFromRight}
+                level="heading1"
               >
-                <Figure
-                  className="mx-auto aspect-square max-h-60 min-h-[12rem] rounded-full"
-                  src={CONTENT.hero.media}
-                  alt="me"
-                  width={160}
-                  height={160}
-                />
-              </MotionSplitItem>
-              <MotionSplitItem side="right" variants={fadeAndSlideInFromRight}>
-                <Typography
-                  className="mx-auto max-w-xl text-center md:text-left"
-                  level="heading3"
-                  color="weaker"
-                >
-                  {CONTENT.hero.body}
-                </Typography>
-              </MotionSplitItem>
-            </MotionSplitContainer>
-          </Container>
+                {CONTENT.hero.heading}
+              </MotionTypography>
+              <MotionTypography
+                variants={fadeAndSlideInFromRight}
+                level="heading3"
+                color="weaker"
+              >
+                {CONTENT.hero.body}
+              </MotionTypography>
+            </div>
+          </MotionContainer>
         </Section>
 
-        <Container>
-          <hr className="border-base-400 dark:border-base-1300" />
+        <Container className="flex w-full items-center gap-4 sm:gap-8">
+          <Divider className="grow" />
+          <ButtonLink
+            className="inline-flex items-center gap-2"
+            intent={"secondary"}
+            href={PUBLIC.documents.resume}
+            target="_blank"
+          >
+            {CONTENT.work.action}
+            <FiExternalLink />
+          </ButtonLink>
+          <Divider className="grow" />
         </Container>
 
-        <Section>
-          <Container className="text-center md:text-left">
-            <Card>
-              <CardContent>
-                <SplitContainer>
-                  <SplitItem side="left">
-                    <Typography level="heading2">
-                      {CONTENT.workSection.heading}
-                    </Typography>
-                  </SplitItem>
-                  <SplitItem className="row-span-3" side="right">
-                    <Figure
-                      className="mx-auto aspect-square max-w-xs rounded-full"
-                      src={CONTENT.workSection.media}
-                      alt="me"
-                      width={320}
-                      height={320}
-                    />
-                  </SplitItem>
-                  <SplitItem side="left">
-                    <Typography className="mx-auto max-w-xl" color="weaker">
-                      {CONTENT.workSection.body}
-                    </Typography>
-                  </SplitItem>
-                  <SplitItem side="left">
-                    <Link
-                      className="inline-flex items-center gap-2 text-xl"
-                      href={PUBLIC.documents.resume}
-                      target="_blank"
-                    >
-                      <p>{CONTENT.workSection.action}</p>
-                      <FiExternalLink />
-                    </Link>
-                  </SplitItem>
-                </SplitContainer>
-              </CardContent>
-            </Card>
-          </Container>
+        <Section ref={workRef}>
+          <MotionContainer
+            className="flex flex-col items-center gap-4 sm:grid sm:grid-cols-2 sm:gap-6"
+            initial={workIsInView ? "hidden" : "visible"}
+            animate={workIsInView ? "visible" : "hidden"}
+            variants={{
+              visible: {
+                transition: {
+                  duration: 0.6,
+                },
+              },
+            }}
+          >
+            <MotionTypography level="heading2" variants={fadeAndRiseIn}>
+              {CONTENT.work.heading}
+            </MotionTypography>
+            <MotionFigure
+              variants={fadeAndRiseIn}
+              className="row-span-2 mx-auto aspect-square h-full max-h-[16rem] min-w-[12rem] shrink-0 rounded-full"
+              src={CONTENT.work.media}
+              alt="me viewing art"
+              width={160}
+              height={160}
+            />
+            <MotionTypography
+              className="text-center sm:text-left"
+              color="weaker"
+              variants={fadeAndRiseIn}
+            >
+              {CONTENT.work.body}
+            </MotionTypography>
+          </MotionContainer>
         </Section>
 
         <Section palette={"surface"}>
@@ -269,23 +276,29 @@ const Page: NextPage = () => {
           </Container>
         </Section>
 
-        <Section>
+        <Section ref={toolsRef}>
           <Container className="mx-auto max-w-3xl text-center lg:px-6">
             <Typography className="" level={"heading2"}>
               {CONTENT.toolkit.heading}
             </Typography>
-            <MotionDiv
-              className="mt-20 flex flex-wrap justify-center gap-4"
+            <motion.div
+              className="mt-20 flex flex-wrap justify-evenly gap-4 sm:justify-center"
               variants={{
+                hidden: {
+                  transition: {
+                    delayChildren: 0.5,
+                    staggerChildren: -0.05,
+                  },
+                },
                 visible: {
                   transition: {
                     delayChildren: 0,
-                    staggerChildren: 0.2,
+                    staggerChildren: 0.1,
                   },
                 },
               }}
-              initial="hidden"
-              animate="visible"
+              initial={toolsIsInView ? "hidden" : "visible"}
+              animate={toolsIsInView ? "visible" : "hidden"}
             >
               {CONTENT.toolkit.tools.map(({ name, icon: Icon, url }) => (
                 <MotionCardLink
@@ -300,7 +313,7 @@ const Page: NextPage = () => {
                   </CardContent>
                 </MotionCardLink>
               ))}
-            </MotionDiv>
+            </motion.div>
           </Container>
         </Section>
       </main>

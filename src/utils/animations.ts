@@ -28,6 +28,17 @@ export const fadeAndSlideInFromRight: Variants = {
   },
 };
 
+export const fadeAndRiseIn: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 8,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+  },
+};
+
 export const fadeAndFlyInFromBottom: Variants = {
   hidden: {
     y: 200,
